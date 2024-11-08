@@ -36,8 +36,9 @@ class Empresa:
 
             chunk_data = vars(chunk)
             chunk_data['idx'] = n
-
-            ann_index.add_item(n, self.produce_sbert_embedding_cat(chunk_data['text']))
+            embedding_data = calls.call_embedding_model(chunk_data['text'])["output"]
+            # print(embedding_data)
+            ann_index.add_item(n, embedding_data)
             self.chunks.append(chunk_data)
         ann_index.build(10)
         ann_index.save(vdpath)
