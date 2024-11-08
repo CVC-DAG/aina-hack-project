@@ -13,8 +13,6 @@ load_dotenv(SRC_PATH / ".env_consts")
 HUGGINGFACE_TOKEN = os.environ.get("HUGGINGFACE_TOKEN")
 SALAMANDRA_URL = os.environ.get("SALAMANDRA_URL")
 
-print(HUGGINGFACE_TOKEN)
-print(SALAMANDRA_URL)
 
 def call_salamandra(system_prompt: str, model_prompt: str):
     client = OpenAI(base_url=SALAMANDRA_URL + "/v1/", api_key=HUGGINGFACE_TOKEN)
