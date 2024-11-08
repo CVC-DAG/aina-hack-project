@@ -8,16 +8,17 @@ from sentence_transformers import SentenceTransformer
 
 GLOBAL_SBERT_CAT = SentenceTransformer("projecte-aina/ST-NLI-ca_paraphrase-multilingual-mpnet-base")
 class Empresa:
-    def __init__(self, url, name, depth, vdbpath = './vdb.ann', metadata_path = './data.json'):
+    def __init__(self, url, name, depth, vdbpath = '../../data/vdb.ann', metadata_path = '../../data/data.json'):
         self.url = url
         self.name = name
         self.depth = depth
-        self.load_vdb_and_data(vdbpath, metadata_path)
 
         if not os.path.exists(vdbpath):
             self.load_vdb_and_data(vdbpath, metadata_path)
         else:
-            pass
+            self.vdb = AnnoyIndex(768, 'angular')
+            self.vdb.load(vdbpath)
+            self.chunks = json.load(open(metadata_path))
 
     @staticmethod
     def produce_sbert_embedding_cat(query):
@@ -44,6 +45,3 @@ class Empresa:
 
     def query_vdb(self, query):
         return [self.chunks['chunks'][i] for i in self.produce_sbert_embedding_cat(query)]
-
-
-Empresa('https://www.lafoneria.com/ca/', 'Foneria', 10)
