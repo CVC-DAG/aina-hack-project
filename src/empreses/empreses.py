@@ -1,4 +1,4 @@
-from empreses_scraputils import crawl_business_web
+from src.empreses.empreses_scraputils import crawl_business_web
 import os
 from annoy import AnnoyIndex
 import json
@@ -47,4 +47,4 @@ class Empresa:
         return [self.chunks['chunks'][i] for i in self.produce_sbert_embedding_cat(query)]
 
 if __name__ == '__main__':
-    Empresa('https://www.allread.ai/ca/', None, 20, vdbpath='../../data/allread.vdb', metadata_path='../../data/allread.vdb')
+    Empresa('https://www.allread.ai/ca/', None, 20, vdbpath='../../data/allread.vdb', metadata_path='../../data/allread.json')
