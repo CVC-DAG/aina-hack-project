@@ -14,7 +14,7 @@ HUGGINGFACE_TOKEN = os.environ.get("HUGGINGFACE_TOKEN")
 SALAMANDRA_URL = os.environ.get("SALAMANDRA_URL")
 
 
-def call_salamandra(system_prompt: str, model_prompt: str):
+def call_salamandra(system_prompt: str, model_prompt: str, temperature: float):
     client = OpenAI(base_url=SALAMANDRA_URL + "/v1/", api_key=HUGGINGFACE_TOKEN)
     messages = [{"role": "system", "content": system_prompt}]
     messages.append({"role": "user", "content": model_prompt})
@@ -25,7 +25,7 @@ def call_salamandra(system_prompt: str, model_prompt: str):
         messages=messages,
         stream=stream,
         max_tokens=1000,
-        # temperature=0.1,
+        temperature=temperature,
         # top_p=0.95,
         # frequency_penalty=0.2,
     )
@@ -33,3 +33,7 @@ def call_salamandra(system_prompt: str, model_prompt: str):
     output_text = chat_completion.choices[0].message
 
     return output_text
+
+
+def call_embedding_model(text: str):
+    ...
