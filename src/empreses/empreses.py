@@ -46,8 +46,9 @@ class Empresa:
         self.vdb = ann_index
         self.chunks = {'chunks': self.chunks}
 
-    def query_vdb(self, query, min_len=10, max_len=250):
-        return set([self.chunks['chunks'][i]['text'] for i in self.vdb.get_nns_by_vector(calls.call_embedding_model(query)['output'], 800) if len(self.chunks['chunks'][i]['text'].split(" ")) > min_len and len(self.chunks['chunks'][i]['text'].split(" ")) < max_len])
+    def query_vdb(self, query, min_len=10, max_len=250, num_results=800):
+        return set([self.chunks['chunks'][i]['text'] for i in self.vdb.get_nns_by_vector(calls.call_embedding_model(query)['output'], num_results) if len(self.chunks['chunks'][i]['text'].split(" ")) > min_len and len(self.chunks['chunks'][i]['text'].split(" ")) < max_len])
 
 if __name__ == '__main__':
-    Empresa('https://www.allread.ai/ca/', None, 20, vdbpath='../../data/allread.vdb', metadata_path='../../data/allread.json')
+    empresa = Empresa('https://www.allread.ai/ca/', None, 20, vdbpath='../../data/allread.vdb', metadata_path='../../data/allread.json')
+    print(empresa.query_vdb('Marçal'))
