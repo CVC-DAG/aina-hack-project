@@ -2,7 +2,7 @@ from src.ciencia.scimatcher import SciMatcher
 from src.empreses.empreses import Empresa
 from src.common import *
 
-from flask import Flask
+from flask import Flask, render_template
 import pandas as pd
 
 app = Flask(__name__, template_folder=TEMPLATES, static_folder=STATIC)
@@ -15,8 +15,9 @@ empreses = [Empresa(url, None, None, vdb, meta) for (url, vdb, meta) in zip(reco
                                                                             record_empreses['metadata'])]
 print(empreses)
 @app.route("/upload_business/")
-def hello_world():
-    return "<p>Hello, World!</p>"
+def upload_business():
+    return render_template("upload_business.html")
+
 def upload_business(business_url):
     vdb_path = business_url.split('.')[0] + '.ann'
     metapath = business_url.split('.')[0] + '.json'
@@ -29,7 +30,8 @@ def upload_business(business_url):
 
     return empreses[-1]
 
-
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=8001)
 
 
 
