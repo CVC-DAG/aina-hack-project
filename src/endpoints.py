@@ -23,16 +23,29 @@ def list_calls():
     ...
 
 
-class SalamandraPrompt(BaseModel):
+class SalamandraQuery(BaseModel):
     system_prompt: str
     prompt: str
+    temperature: float
 
 
 @app.get("/prompt_salamandra/")
-def prompt_salamandra(prompt: SalamandraPrompt):
-    output_text = calls.call_salamandra(prompt.system_prompt, prompt.prompt)
+def prompt_salamandra(query: SalamandraQuery):
+    output_text = calls.call_salamandra(
+        query.system_prompt,
+        query.prompt,
+        query.temperature,
+    )
 
     return {"output": output_text}
+
+
+class EmbeddingModelQuery(BaseModel):
+    ...
+
+
+def embedding_model(query: EmbeddingModelQuery):
+    ...
 
 
 @app.post("/process_enterprise_documents/")
