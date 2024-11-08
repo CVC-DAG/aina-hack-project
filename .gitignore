@@ -4,3 +4,5 @@ prompts/*
 src/.env
 
 *.pyc
+
+.idea/

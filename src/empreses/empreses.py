@@ -14,6 +14,7 @@ class Empresa:
         self.url = url
         self.name = name
         self.depth = depth
+
         if not os.path.exists(vdbpath):
             self.load_vdb_and_data(vdbpath, metadata_path)
         else:
@@ -35,8 +36,9 @@ class Empresa:
 
             chunk_data = vars(chunk)
             chunk_data['idx'] = n
-
-            ann_index.add_item(n, calls.call_embedding_model(chunk_data['text'])['output'])
+            embedding_data = calls.call_embedding_model(chunk_data['text'])["output"]
+            # print(embedding_data)
+            ann_index.add_item(n, embedding_data)
             self.chunks.append(chunk_data)
         ann_index.build(10)
         ann_index.save(vdpath)
