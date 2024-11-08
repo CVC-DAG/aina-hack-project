@@ -1,0 +1,19 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Digue'ns què vols</h1>
+    <form action="#" method="post">
+        <div class="form-group">
+          <label for="url">Lloc web de la teva empresa</label>
+          <input type="text" id="url_field" name="url" required>
+        </div>
+    </form>
+</body>
+</html>

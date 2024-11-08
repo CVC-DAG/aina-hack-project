@@ -1,0 +1,326 @@
+/* Apple-Inspired CSS Stylesheet */
+
+:root {
+  --background-color: #f5f5f7;
+  --text-color: #1d1d1f;
+  --heading-color: #1d1d1f;
+  --accent-color: #0071e3; /* Light blue for accents */
+  --font-primary: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  line-height: 1.6;
+  padding: 20px;
+}
+
+/* Layout */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Headings */
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--heading-color);
+  letter-spacing: -0.5px;
+}
+
+h1 {
+  font-size: 3rem;
+  margin: 40px 0 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 30px 0 15px;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 25px 0 10px;
+}
+
+/* Text Styling */
+
+p {
+  font-size: 1rem;
+  color: var(--text-color);
+  margin: 20px 0;
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: darken(var(--accent-color), 10%);
+}
+
+.button {
+  display: inline-block;
+  background-color: var(--accent-color);
+  color: #fff;
+  padding: 10px 20px;
+  font-weight: 600;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: darken(var(--accent-color), 10%);
+}
+
+/* Flex Layouts for Grid Sections */
+
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Image Styling */
+
+.image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+/* Hero Section */
+
+.hero {
+  text-align: center;
+  padding: 100px 0;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  color: var(--heading-color);
+}
+
+.hero p {
+  font-size: 1.25rem;
+  color: #6e6e73;
+}
+
+.hero .button {
+  margin-top: 30px;
+}
+
+/* Product Section */
+
+.product-section {
+  display: flex;
+  gap: 40px;
+  align-items: center;
+  margin: 60px 0;
+}
+
+.product-section img {
+  max-width: 500px;
+  height: auto;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+  max-width: 500px;
+}
+
+.product-info h2 {
+  font-size: 2.5rem;
+  color: var(--heading-color);
+}
+
+.product-info p {
+  font-size: 1.1rem;
+  color: #6e6e73;
+  margin-top: 20px;
+}
+
+.product-info .button {
+  margin-top: 30px;
+}
+
+/* Footer */
+
+.footer {
+  padding: 60px 0;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #6e6e73;
+  border-top: 1px solid #d2d2d7;
+}
+
+.footer a {
+  color: #6e6e73;
+}
+
+.footer a:hover {
+  color: var(--accent-color);
+}
+
+/* Responsive Design */
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+  }
+
+  .product-section {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .hero {
+    padding: 60px 0;
+  }
+
+  .product-section img,
+  .product-info {
+    max-width: 100%;
+  }
+}
+
+/* Apple-Inspired Form Styles */
+
+:root {
+  --background-color: #f5f5f7;
+  --form-bg-color: #ffffff;
+  --text-color: #1d1d1f;
+  --accent-color: #0071e3;
+  --border-color: #d2d2d7;
+  --font-primary: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.form-container {
+  width: 100%;
+  max-width: 400px;
+  background-color: var(--form-bg-color);
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form-container h1 {
+  font-size: 2rem;
+  color: var(--text-color);
+  margin-bottom: 10px;
+}
+
+.form-container p {
+  color: #6e6e73;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  font-size: 0.9rem;
+  color: #6e6e73;
+  margin-bottom: 5px;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background-color: #fafafa;
+  transition: border-color 0.3s;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="password"]:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.checkbox {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.checkbox label {
+  font-size: 0.9rem;
+}
+
+.checkbox a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.checkbox a:hover {
+  text-decoration: underline;
+}
+
+.button {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: darken(var(--accent-color), 10%);
+}
