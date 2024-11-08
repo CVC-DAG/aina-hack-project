@@ -7,7 +7,7 @@ from tqdm import tqdm
 #from sentence_transformers import SentenceTransformer
 #GLOBAL_SBERT_CAT = SentenceTransformer("projecte-aina/ST-NLI-ca_paraphrase-multilingual-mpnet-base")
 
-from src.local_calls import call_embedding_model
+import src.local_calls as calls
 
 class Empresa:
     def __init__(self, url, name, depth, vdbpath = '../../data/vdb.ann', metadata_path = '../../data/data.json'):
@@ -47,7 +47,7 @@ class Empresa:
         self.chunks = {'chunks': self.chunks}
 
     def query_vdb(self, query, min_len=10, max_len=250):
-        return set([self.chunks['chunks'][i]['text'] for i in self.vdb.get_nns_by_vector(call_embedding_model(query)['output'], 800) if len(self.chunks['chunks'][i]['text'].split(" ")) > min_len and len(self.chunks['chunks'][i]['text'].split(" ")) < max_len])
+        return set([self.chunks['chunks'][i]['text'] for i in self.vdb.get_nns_by_vector(calls.call_embedding_model(query)['output'], 800) if len(self.chunks['chunks'][i]['text'].split(" ")) > min_len and len(self.chunks['chunks'][i]['text'].split(" ")) < max_len])
 
 if __name__ == '__main__':
     Empresa('https://www.allread.ai/ca/', None, 20, vdbpath='../../data/allread.vdb', metadata_path='../../data/allread.json')
