@@ -1,11 +1,14 @@
 import os
+from pathlib import Path
 
 # pip install openai
 from dotenv import load_dotenv
 from openai import OpenAI
 
-load_dotenv(".env")
-load_dotenv(".env_consts")
+SRC_PATH = Path(__file__).parent
+
+load_dotenv(SRC_PATH / ".env")
+load_dotenv(SRC_PATH / ".env_consts")
 
 HUGGINGFACE_TOKEN = os.environ.get("HUGGINGFACE_TOKEN")
 SALAMANDRA_URL = os.environ.get("SALAMANDRA_URL")
