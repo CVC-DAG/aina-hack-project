@@ -2,8 +2,10 @@ import requests
 from dotenv import load_dotenv
 import os
 import json
+from pathlib import Path
 
-load_dotenv(".env_consts")
+SRC_PATH = Path(__file__).parent
+load_dotenv(SRC_PATH / ".env_consts")
 
 SERVER_IP = os.environ.get("SERVER_IP")
 
