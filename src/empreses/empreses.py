@@ -4,9 +4,11 @@ from annoy import AnnoyIndex
 import json
 from tqdm import tqdm
 
-from sentence_transformers import SentenceTransformer
+#from sentence_transformers import SentenceTransformer
+#GLOBAL_SBERT_CAT = SentenceTransformer("projecte-aina/ST-NLI-ca_paraphrase-multilingual-mpnet-base")
 
-GLOBAL_SBERT_CAT = SentenceTransformer("projecte-aina/ST-NLI-ca_paraphrase-multilingual-mpnet-base")
+from src.model_calls import call_bert_embedding_model
+
 class Empresa:
     def __init__(self, url, name, depth, vdbpath = '../../data/vdb.ann', metadata_path = '../../data/data.json'):
         self.url = url
@@ -20,10 +22,10 @@ class Empresa:
             self.vdb.load(vdbpath)
             self.chunks = json.load(open(metadata_path))
 
-    @staticmethod
-    def produce_sbert_embedding_cat(query):
-        # TODO: Cridar al codi del pau
-        return GLOBAL_SBERT_CAT.encode(query).tolist()
+    # @staticmethod
+    # def produce_sbert_embedding_cat(query):
+    #     # TODO: Cridar al codi del pau
+    #     return GLOBAL_SBERT_CAT.encode(query).tolist()
     def load_vdb_and_data(self, vdpath, metadata_path):
         data = crawl_business_web(self.url, self.depth)
         print(f"Data scrapped with {len(data)} chunks.")
@@ -45,7 +47,7 @@ class Empresa:
         self.chunks = {'chunks': self.chunks}
 
     def query_vdb(self, query, min_len=10, max_len=250):
-        return set([self.chunks['chunks'][i]['text'] for i in self.get_nns_by_vector(self.produce_sbert_embedding_cat(query), 800) if len(self.chunks['chunks'][i]['text'].split(" ")) > min_len and len(self.chunks['chunks'][i]['text'].split(" ")) < max_len])
+        return set([self.chunks['chunks'][i]['text'] for i in self.get_nns_by_vector(call_bert_embedding_model(query), 800) if len(self.chunks['chunks'][i]['text'].split(" ")) > min_len and len(self.chunks['chunks'][i]['text'].split(" ")) < max_len])
 
 if __name__ == '__main__':
     Empresa('https://www.allread.ai/ca/', None, 20, vdbpath='../../data/allread.vdb', metadata_path='../../data/allread.json')
