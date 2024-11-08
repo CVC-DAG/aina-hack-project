@@ -17,12 +17,6 @@ def read_item(item_id: int, q: Union[str, None] = None):
     return {"item_id": item_id, "q": q}
 
 
-@app.get("/list-calls")
-def list_calls():
-    """Dona llista de convocatòries de la BBDD."""
-    ...
-
-
 class SalamandraQuery(BaseModel):
     system_prompt: str
     prompt: str
@@ -41,18 +35,10 @@ def prompt_salamandra(query: SalamandraQuery):
 
 
 class EmbeddingModelQuery(BaseModel):
-    ...
+    text: str
 
-
+@app.get("/embedding_model/")
 def embedding_model(query: EmbeddingModelQuery):
-    ...
-
-
-@app.post("/process_enterprise_documents/")
-def process_enterprise_documents():
-    ...
-
-
-@app.post("/process_research_documents/")
-def process_research_documents():
-    ...
+    return {
+        "output": calls.call_bert_embedding_model(query.text)
+    }
