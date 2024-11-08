@@ -109,14 +109,14 @@
             {
                 "name": "NIF del proveïdor",
                 "explain": "NIF del centre de recerca",
-                "system_prompt": "",
+                "system_prompt": "Quin és el NIF del proveïdor?",
                 "needs_science": true,
                 "needs_business": false
             },
             {
                 "name": "Indicar el tipus de vinculació amb un EDIH",
                 "explain": "",
-                "system_prompt": "",
+                "system_prompt": "Quin és el tipus de vinculació amb un EDIH? Respon triant una de les opcions següents: Membre d'un European Digital Innovation Hub que hagi estat seleccionat per la Comissió Europea per rebre finançament del programa Europa Digital, Entitat formalment vinculada a un European Digital Innovation Hub que hagi estat seleccionat per la Comissió Europea per rebre finançament del programa Europa Digital.",
                 "needs_science": true,
                 "needs_business": false,
                 "choose_model": ["membre d'un EDIH", "entitat vinculada a un EDIH"],
@@ -125,49 +125,49 @@
             {
                 "name": "Nom del EDIH",
                 "explain": "Nom del EDIH al que està vinculat.",
-                "system_prompt": "",
+                "system_prompt": "Quin és el nom del EDIH?",
                 "needs_science": true,
                 "needs_business": false
             },
             {
                 "name": "Nom de l'Entitat representant de l'EDIH",
                 "explain": "Nom de l'entitat representant de l'EDIH",
-                "system_prompt": "",
+                "system_prompt": "Quin és el nom de l'entitat representant de l'EDIH?",
                 "needs_science": true,
                 "needs_business": false
             },
             {
                 "name": "NIF de l'Entitat representant de l'EDIH",
                 "explain": "NIF de l'entitat representant de l'EDIH",
-                "system_prompt": "",
+                "system_prompt": "Quin és el NIF de l'entitat representant de l'EDIH?",
                 "needs_science": true,
                 "needs_business": false
             },
             {
                 "name": "3.2. Descripció de les competències i coneixements experts del proveïdor relacionats amb el servei de testatge, experimentació i validació de tecnologia a prestar a l'empresa sol·licitant de l'ajut.",
                 "explain": "Competencies i coneixements del centre d\"investigació.",
-                "system_prompt": "",
+                "system_prompt": "Quines són les competències i coneixements experts del proveïdor?",
                 "needs_science": true,
                 "needs_business": false
             },
             {
                 "name": "3.3. Experiència prèvia en la prestació de serveis especialitzats de digitalització a les empreses relacionats amb el servei de testatge, experimentació i validació de tecnologia a prestar a l'empresa sol·licitant de l'ajut.",
                 "explain": "Experiencia prèvia del centre d\"investigació.",
-                "system_prompt": "",
+                "system_prompt": "Quina és l'experiència prèvia del centre d\"investigació?",
                 "needs_science": true,
                 "needs_business": false
             },
             {
                 "name": "3.4. Nom del servei ofert a través del European Digital Innovation Hub",
                 "explain": "Nom del servei ofert a través del EDIH.",
-                "system_prompt": "",
+                "system_prompt": "Quin és el nom del servei ofert a través del EDIH?",
                 "needs_science": true,
                 "needs_business": false
             },
             {
                 "name": "3.5. Relació de les infraestructures i equipaments propis del proveïdor oferts a través del European Digital Innovation Hub relacionats amb el servei a prestar a l'empresa sol·licitant de l'ajut",
                 "explain": "Infraestructures i equipaments del centre d\"investigació.",
-                "system_prompt": "",
+                "system_prompt": "Quines són les infraestructures i equipaments del centre d\"investigació?",
                 "needs_science": true,
                 "needs_business": false
             },
