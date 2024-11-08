@@ -1,5 +1,6 @@
 models/*
-
+dades/*
+prompts/*
 src/.env
 
 *.pyc
