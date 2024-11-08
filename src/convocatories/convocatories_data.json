@@ -7,28 +7,32 @@
         "slots": [{
             "name": "Empresa Beneficiària",
             "explain": "Nom de l'empresa que sol·licita la tranferència.",
-            "system_prompt": "",
+            "system_prompt": "Quin és el nom de l'empresa?",
+            "search_query": "Nom de l'empresa",
             "needs_science": false,
             "needs_business": true
         },
         {
             "name": "1.1 Descripció de l'empresa i de l'activitat de l'empresa",
             "explain": "Sector i activitat principal de l'empresa.",
-            "system_prompt": "",
+            "system_prompt": "Quin es el sector i activitat principal de l'empresa?",
+            "search_query": "activitat",
             "needs_science": false,
             "needs_business": true
         },
         {
             "name": "1.2 Web de l'Empresa",
             "explain": "Idem",
-            "system_prompt": "",
+            "system_prompt": "Quina és la web de l'empresa?",
+            "search_query": "web",
             "needs_science": false,
             "needs_business": true
         },
         {
             "name": "Xifres de negoci de l'empresa (tenint en compte totes les Unitats de Negoci)",
             "explain": "Idem",
-            "system_prompt": "",
+            "system_prompt": "Quines són les xifres de negoci de l'empresa?",
+            "search_query": "xifres de negoci",
             "needs_science": false,
             "needs_business": true
         },
@@ -36,7 +40,9 @@
         {
             "name": "1.4. Resultat del test d'Autorientació digital del DIH4CAT",
             "explain": "Resultat del test d'autoorientació de la plataorma externa proporcionada per DIH4CAT",
-            "system_prompt": "",
+            "system_prompt": "Quin és el resultat del test d'autoorientació digital del DIH4CAT? Tria entre: Explorant, Competent, Expert, Líder",
+            "search_query": "resultat del test d'autoorientació digital del DIH4CAT",
+
             "needs_science": false,
             "needs_business": true,
             "choose": ["Explorant", "Competent", "Expert", "Líder"]
@@ -44,14 +50,16 @@
             {
                 "name": "2.1. Títol descriptiu del servei",
                 "explain": "Títol de l'activitat que l'empresa planteja solucionar amb el centre científic.",
-                "system_prompt": "",
+                "system_prompt": "Quin és el títol de l'activitat que l'empresa planteja solucionar amb el centre científic?",
+                "search_query": "títol de l'activitat",
                 "needs_science": true,
                 "needs_business": true
             },
             {
                 "name": "2.2. Indicar quines tecnologies digitals avançades es contemplen en el servei d'assessorament pel testatge, experimentació i validació de l'ús i aplicació de les tecnologies digitals avançades (es pot marcar més d'una opció): ",
                 "explain": "Tipus de tecnologies que es faran servir per duur a terme la tasca.",
-                "system_prompt": "",
+                "system_prompt": "Quines technologies es faran servir per dur a terme la tasca? Respon només triant tantes techologies com vulguis de la següent llista: Fabricació additiva/i3D Printing, Robòtica i manufactura avançada ( inclou realitat virtual i realitat augmentada o mixta,Cloud/Edge,Simulació i bessó digital), Supercomputació i Quàntica, Ciberseguretat, Intel·ligència artificial ( Inclou Big Data)\n",
+                "search_query": "tecnologies",
                 "needs_science": true,
                 "needs_business": true,
                 "choose": ["Fabricació additiva/i3D Printing", "Robòtica i manufactura avançada ( inclou realitat virtual i realitat augmentada o mixta,Cloud/Edge,Simulació i bessó digital)",
@@ -60,7 +68,8 @@
             {
                 "name": "2.3 Indicar el tipus de servei vinculat a l'assessorament (es pot marcar més d'una opció):",
                 "explain": "Tipus de servei que es demana.",
-                "system_prompt": "",
+                "system_prompt": "Quin tipus de servei es demana? Respon només triant tantes opcions com vulguis de la següent llista: Estudis de viabilitat tecnològica, Anàlisis de nous models de negoci basats en l'ús de tecnologies digitals avançades., Serveis de prova de concepte i validació de resultats., Desenvolupament de prototips i pilots (testatge del producte o servei).\n",
+                "search_query": "tipus de servei",
                 "needs_science": true,
                 "needs_business": true,
                 "choose": ["Estudis de viabilitat tecnològica", "Anàlisis de nous models de negoci basats en l'ús de tecnologies digitals avançades.", "Serveis de prova de concepte i validació de resultats.", "Desenvolupament de prototips i pilots (testatge del producte o servei)."]
@@ -68,28 +77,32 @@
             {
                 "name": "2.4.1. Descriure en què consistirà el servei a realitzar i l'abast del mateix. (es recomana un mínim de 8 línies)",
                 "explain": "Descripció del servei que es demana.",
-                "system_prompt": "",
+                "system_prompt": "En què consistirà el servei a realitzar i l'abast del mateix?",
+                "search_query": "servei",
                 "needs_science": true,
                 "needs_business": true
             },
             {
                 "name": "2.4.2. Descriure el repte principal i reptes associats que pretén resoldre l'empresa amb el testatge, experimentació i validació de l'ús i aplicació de les tecnologies digitals avançades",
                 "explain": "Repte principal i reptes associats que es volen resoldre.",
-                "system_prompt": "",
+                "system_prompt": "Descriu el repte principal i reptes associats que pretén resoldre l'empresa?",
+                "search_query": "technologies",
                 "needs_science": true,
                 "needs_business": true
             },
             {
                 "name": "2.4.3. Descriure quin tipus de resultats s’esperen del servei ( Els resultats obtinguts han de ser algun dels que s’indiquen en l'apartat 6 del annex 2 )",
                 "explain": "Resultats esperats del servei.",
-                "system_prompt": "",
+                "system_prompt": "Quins són els resultats esperats del servei?",
+                "search_query": "resultats esperats",
                 "needs_science": true,
                 "needs_business": true
             },
             {
                 "name": "2.4.4. Llistar i descriure el/s lliurable/s previstos",
                 "explain": "Lliurables previstos.",
-                "system_prompt": "",
+                "system_prompt": "Quins són els lliurables previstos?",
+                "search_query": "lliurables previstos",
                 "needs_science": true,
                 "needs_business": true
             },
@@ -161,7 +174,8 @@
             {
                 "name": "El cost subvencionable que es presenta és igual o superior a 15.000 €? (Indicar amb X una de les opcions proposades):",
                 "explain": "Cost subvencionable igual o major que 15000€",
-                "system_prompt": "",
+                "system_prompt": "És el cost subvencionable igual o superior a 15.000€? Respon amb Sí o No",
+                "search_query": "cost subvencionable",
                 "needs_science": false,
                 "needs_business": true,
                 "choose": ["Sí", "No"]
@@ -169,7 +183,8 @@
             {
                 "name": "4.2. Detall del pressupost",
                 "explain": "Pressupost del servei.",
-                "system_prompt": "",
+                "system_prompt": "Quin és el presupost del projecte?",
+                "search_query": "presupost",
                 "needs_science": false,
                 "needs_business": true
             }
