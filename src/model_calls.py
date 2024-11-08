@@ -15,6 +15,7 @@ load_dotenv(SRC_PATH / ".env_consts")
 HUGGINGFACE_TOKEN = os.environ.get("HUGGINGFACE_TOKEN")
 SALAMANDRA_URL = os.environ.get("SALAMANDRA_URL")
 SALAMANDRA_QA_URL = os.environ.get("SALAMANDRA_QA_URL")
+MAX_TOKENS = int(os.environ.get("MAX_TOKENS"))
 
 # Const model variables
 GLOBAL_SBERT_CAT = SentenceTransformer("projecte-aina/ST-NLI-ca_paraphrase-multilingual-mpnet-base")
@@ -30,7 +31,7 @@ def call_salamandra(system_prompt: str, model_prompt: str, temperature: float):
         model="tgi",
         messages=messages,
         stream=stream,
-        max_tokens=1000,
+        max_tokens=MAX_TOKENS,
         temperature=temperature,
         # top_p=0.95,
         # frequency_penalty=0.2,
@@ -60,6 +61,7 @@ def call_salamandra_qa(system_prompt: str, model_prompt: str, temperature: float
     output_text = chat_completion.choices[0].message
 
     return output_text
+
 
 
 def call_bert_embedding_model(text: str):
