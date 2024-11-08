@@ -1,4 +1,4 @@
-from empreses_scraputils import crawl_business_web
+from .empreses_scraputils import crawl_business_web
 import os
 from annoy import AnnoyIndex
 import json
@@ -45,3 +45,6 @@ class Empresa:
 
     def query_vdb(self, query):
         return [self.chunks['chunks'][i] for i in self.produce_sbert_embedding_cat(query)]
+
+if __name__ == '__main__':
+    Empresa(None, None, None, vdbpath='')
