@@ -4,6 +4,16 @@
 
         "explain": "",
         "bases_reguladores": "",
+        "metadata":
+        {
+            "obertura": "30/05/2024",
+            "tancament": "26/7/2024",
+            "convoca": "acció",
+            "tipus": "Subvenció (mínims)",
+            "modalitat": "concurrència simple",
+            "pressupost": "1.4M€",
+            "mes_informacio": "https://www.accio.gencat.cat/ca/serveis/innovacio/innovacio-empresarial/cupons-accio-a-la-competitivitat-de-lempresa/#cupons-tecnologies"
+        },
         "slots": [{
             "name": "Empresa Beneficiària",
             "explain": "Nom de l'empresa que sol·licita la tranferència.",
