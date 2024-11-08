@@ -1,0 +1,5 @@
+{
+	// Install LSP-json to get validation and autocompletion in this file.
+	"venvPath": "~/miniconda3/envs/",
+	"venv": "aina-hack",
+}
