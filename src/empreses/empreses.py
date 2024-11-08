@@ -22,6 +22,7 @@ class Empresa:
 
     @staticmethod
     def produce_sbert_embedding_cat(query):
+        # TODO: Cridar al codi del pau
         return GLOBAL_SBERT_CAT.encode(query).tolist()
     def load_vdb_and_data(self, vdpath, metadata_path):
         data = crawl_business_web(self.url, self.depth)
@@ -43,8 +44,8 @@ class Empresa:
         self.vdb = ann_index
         self.chunks = {'chunks': self.chunks}
 
-    def query_vdb(self, query):
-        return [self.chunks['chunks'][i] for i in self.produce_sbert_embedding_cat(query)]
+    def query_vdb(self, query, min_len=10, max_len=250):
+        return set([self.chunks['chunks'][i]['text'] for i in self.get_nns_by_vector(self.produce_sbert_embedding_cat(query), 800) if len(self.chunks['chunks'][i]['text'].split(" ")) > min_len and len(self.chunks['chunks'][i]['text'].split(" ")) < max_len])
 
 if __name__ == '__main__':
     Empresa('https://www.allread.ai/ca/', None, 20, vdbpath='../../data/allread.vdb', metadata_path='../../data/allread.json')
