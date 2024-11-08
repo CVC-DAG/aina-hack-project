@@ -32,3 +32,4 @@ def call_embedding_model(text: str):
 
 if __name__ == "__main__":
     print(call_salamandra("Ets un paio molt enrollat i et dius Manel, no sirulegis", "Saluda'm", 0.0))
+    print(call_embedding_model("Bon dia, Josep!"))
