@@ -1,0 +1,49 @@
+from empreses_scraputils import crawl_business_web
+import os
+from annoy import AnnoyIndex
+import json
+from tqdm import tqdm
+
+from sentence_transformers import SentenceTransformer
+
+GLOBAL_SBERT_CAT = SentenceTransformer("projecte-aina/ST-NLI-ca_paraphrase-multilingual-mpnet-base")
+class Empresa:
+    def __init__(self, url, name, depth, vdbpath = './vdb.ann', metadata_path = './data.json'):
+        self.url = url
+        self.name = name
+        self.depth = depth
+        self.load_vdb_and_data(vdbpath, metadata_path)
+
+        if not os.path.exists(vdbpath):
+            self.load_vdb_and_data(vdbpath, metadata_path)
+        else:
+            pass
+
+    @staticmethod
+    def produce_sbert_embedding_cat(query):
+        return GLOBAL_SBERT_CAT.encode(query).tolist()
+    def load_vdb_and_data(self, vdpath, metadata_path):
+        data = crawl_business_web(self.url, self.depth)
+        print(f"Data scrapped with {len(data)} chunks.")
+        ann_index = AnnoyIndex(768, 'angular')
+        self.chunks = []
+
+        for n, chunk in tqdm(enumerate(data), total = len(data)):
+
+            chunk_data = vars(chunk)
+            chunk_data['idx'] = n
+
+            ann_index.add_item(n, self.produce_sbert_embedding_cat(chunk_data['text']))
+            self.chunks.append(chunk_data)
+        ann_index.build(10)
+        ann_index.save(vdpath)
+        json.dump({'chunks': self.chunks}, open(metadata_path, 'w'))
+
+        self.vdb = ann_index
+        self.chunks = {'chunks': self.chunks}
+
+    def query_vdb(self, query):
+        return [self.chunks['chunks'][i] for i in self.produce_sbert_embedding_cat(query)]
+
+
+Empresa('https://www.lafoneria.com/ca/', 'Foneria', 10)
