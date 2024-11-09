@@ -62,7 +62,7 @@ class SciMatcher:
         retrieval_abstract = []
         retrieval_key_words = []
         
-        query_results = empresa.query_vdb("resultats esperats", num_results=800)
+        query_results = empresa.query_vdb("Tecnologies que busqueu desenvolupar", min_len=10, max_len=150, num_results=2000)
         
         if len(query_results) == 0:
             query_results = ["res"]
@@ -70,15 +70,15 @@ class SciMatcher:
         embeddings_to_search = [call_embedding_model(text)["output"] for text in query_results]
         
         for qemb in embeddings_to_search:
-            title_best_matches, distances_title = self.vdb_title.get_nns_by_vector(qemb, 10, include_distances=True) 
+            title_best_matches, distances_title = self.vdb_title.get_nns_by_vector(qemb, 20, include_distances=True) 
             title_best_matches = self.title_look_up_table[title_best_matches]
             retrieval_title.extend(list(zip(title_best_matches, distances_title)))
             
-            abstract_best_matches, distances_abstract = self.vdb_abstract.get_nns_by_vector(qemb, 10, include_distances=True)
+            abstract_best_matches, distances_abstract = self.vdb_abstract.get_nns_by_vector(qemb, 20, include_distances=True)
             abstract_best_matches = self.abstract_look_up_table[abstract_best_matches]
             retrieval_abstract.extend(list(zip(abstract_best_matches, distances_abstract)))
             
-            key_words_best_matches, distances_key_words = self.vdb_key_words.get_nns_by_vector(qemb, 10, include_distances=True)
+            key_words_best_matches, distances_key_words = self.vdb_key_words.get_nns_by_vector(qemb, 20, include_distances=True)
             key_words_best_matches = self.key_word_look_up_table[key_words_best_matches]
             retrieval_key_words.extend(list(zip(key_words_best_matches, distances_key_words)))
             
@@ -87,10 +87,11 @@ class SciMatcher:
         retrieval_title = sorted(retrieval_title, key=lambda x: x[1])
         
         
-        final_retrieve = self.merge_index_lists(retrieval_abstract, retrieval_key_words, retrieval_title)#retrieval_abstract + retrieval_title + retrieval_key_words
+        final_retrieve = self.merge_index_lists(retrieval_title)#retrieval_abstract + retrieval_title + retrieval_key_words
         final_retrieve = sorted(final_retrieve, key=lambda x: x[1])
         
         best_match = final_retrieve[0][0]
+        
         
         
         title_best_match = self.get_target_nodes_by_edge_type(str(best_match), 'title')[0]
@@ -99,23 +100,73 @@ class SciMatcher:
         best_abstract = self.get_target_nodes_by_edge_type(str(best_match), 'contain')[0]
         value_abstract = self.graph.nodes[best_abstract]["content"]
         
-        best_context_match = f"The best context has been written by: {', '.join(self.get_target_nodes_by_edge_type(str(best_match), 'author'))} and the title is {value_title}\n"
+        best_context_match = f"L'article que més s'apropa al que busques ha estat escrit per : {', '.join(self.get_target_nodes_by_edge_type(str(best_match), 'author'))} i el seu títol és {value_title}\n"
         if len(self.get_target_nodes_by_edge_type(str(best_match), "has")) != 0:
-            best_context_match += f"The publication contain the following keywords: {self.get_target_nodes_by_edge_type(str(best_match), 'has')}\n"
+            best_context_match += f"La publicació conté les següents paraules claus: {self.get_target_nodes_by_edge_type(str(best_match), 'has')}\n"
         
         if len(self.get_target_nodes_by_edge_type(str(best_match), 'contain')) != 0:
-            best_context_match += f"And the abstract is:\n {value_abstract}"
+            best_context_match += f"i el seu abstract és:\n {value_abstract}"
         
+        self.write_response(final_retrieve)
         
-        self.db[empresa.url] = best_context_match
-        json.dump(self.db, open(self.path, 'w'))
+#        self.db[empresa.url] = best_context_match
+#        json.dump(self.db, open(self.path, 'w'))
         
         return best_context_match, self.get_target_nodes_by_edge_type(str(best_match), 'author')[0]
     
+    
+    
+    def write_response(self, list_reponses):
+        
+        def extract_respose(response, edge):
+            title_best_match = self.get_target_nodes_by_edge_type(str(response), edge)
+            if isinstance(title_best_match, list) and len(title_best_match) > 1:
+                return title_best_match
+
+            elif isinstance(title_best_match, list) and len(title_best_match) != 0:
+                value_title = self.graph.nodes[title_best_match[0]]
+                value_title = value_title.get("content")
+                return value_title
+
+            else:
+                return "res"
+            
+        top_responses = list_reponses[:10]
+        json_response =  []
+        for response in top_responses:
+            sub_response = {
+                
+            }
+            index_match = response[0]
+            
+            sub_response["title"] = extract_respose(index_match, "title")
+            sub_response["keys"] = extract_respose(index_match, "has")
+            sub_response["authors"] = extract_respose(index_match, "author")
+            json_response.append(sub_response)
+        
+        self.write_json(data=json_response, filename="response.json")  
+            
+            
+        
+    def write_json(self, data, filename):
+        """
+        Write data to a JSON file.
+        
+        Parameters:
+        - data: The data to write (can be a dictionary, list, etc.).
+        - filename: The name of the file to write to, including the `.json` extension.
+        """
+        try:
+            with open(filename, 'w') as file:
+                json.dump(data, file, indent=4)  # `indent=4` for pretty-printing
+            print(f"Data successfully written to {filename}")
+        except Exception as e:
+            print(f"An error occurred while writing JSON to {filename}: {e}")
+            
     def merge_index_lists(self, *lists):
         # Step 1: Flatten all distances and compute softmax
         all_distances = [dist for lst in lists for _, dist in lst]
-        softmax_distances = np.exp(-np.array(all_distances)) / np.sum(np.exp(-np.array(all_distances))) # type: ignore
+        softmax_distances = all_distances# np.exp(-np.array(all_distances)) / np.sum(np.exp(-np.array(all_distances))) # type: ignore
         
         # Step 2: Reassign normalized distances back to the (index, distance) pairs
         flattened_list = [pair for lst in lists for pair in lst]
@@ -125,7 +176,7 @@ class SciMatcher:
         combined_distances = defaultdict(float)
         for idx, dist in normalized_list:
             if idx in combined_distances:
-                combined_distances[idx] *= dist  # Multiply for duplicates
+                combined_distances[idx] = (combined_distances[idx] * dist)/2  # Multiply for duplicates
             else:
                 combined_distances[idx] = dist  # Set for the first occurrence
         
