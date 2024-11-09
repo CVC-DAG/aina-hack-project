@@ -14,4 +14,4 @@ EMBEDDINGS_TITLE = "data/titles.vdb"
 
 GRAPH_PATH = "data/graph.graphml" 
 
-GRAPH_NX_WEB = "https://ouestware.gitlab.io/retina/beta/#/graph/?url=https%3A%2F%2Fgist.githubusercontent.com%2FEauDeData%2F24650ed0e9cec4aa52dc6f0ffd2fddbe%2Fraw%2F4899a5a915498d437f56f623145b3100c292b799%2Fnetwork-02393d0a-b09.gexf"
+GRAPH_NX_WEB = "https://ouestware.gitlab.io/retina/beta/#/graph/?url=https://gist.githubusercontent.com/EauDeData/d101bfdbcca2d52afb27864786888e2a/raw/86593990144e0fd963d6022cea666ca231842a0d/network-37f29879-d6b.gexf"
