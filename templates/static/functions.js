@@ -2,6 +2,7 @@
 
 function submitURLForm() {
     let formGroup = document.getElementById('form-group')
+    let convElement = document.getElementById('convocatories')
     let urlForm = document.getElementById('url-form')
     formGroup.style.display = 'none'
     // formGroup.innerHTML = "<h2>Hola, " + urlForm.elements["url"] + ". Preparant la teva cita amb la ciència...</h2>"
@@ -12,6 +13,8 @@ function submitURLForm() {
         redirect: 'follow',
         body: formData,
     };
+    convElement.style.display = 'contents'
+    convElement.innerHTML = '<div class="loader">Carregant...</div>'
     fetch('/submit_upload_business', requestOptions)
         .then(response => response.text())
         .then(data => {
@@ -20,9 +23,9 @@ function submitURLForm() {
     // formGroup.innerHTML = "<h2>Llest! Tria la convocatòria a la que vulguis aplicar.<\h2>"
 }
 
-
 function submitWhichCall() {
     let callValue = document.querySelector('input[name="conv_select"]:checked').value;
+    let convElement = document.getElementById('convocatoria_emplenada')
     let urlForm = document.getElementById('url-form')
     let formData = new FormData(urlForm);
     formData.append("selected_form", callValue)
@@ -31,10 +34,12 @@ function submitWhichCall() {
         redirect: 'follow',
         body: formData,
     };
+    convElement.style.display = 'contents'
+    convElement.innerHTML = '<div class="loader">Carregant...</div>'
     fetch('/fill_selected_call', requestOptions)
         .then(response => response.text())
         .then(data => {
-            document.getElementById('convocatories').innerHTML = data;
+            convElement.innerHTML = data;
         });
 }
 
