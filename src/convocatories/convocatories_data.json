@@ -244,7 +244,8 @@
                 "system_prompt": "Qui és el responsable de l'empresa?",
                 "search_query": "Responsable Empresa",
                 "needs_science": false,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "text_2grki"
             },
             {
                 "name": "1.2 Títol del Repte / Projecte",
@@ -252,7 +253,8 @@
                 "system_prompt": "Segons els articles científics provistos, digues, en català, el nom del projecte a solucionar. Sigues ambiciosa i digues directament el títol.",
                 "search_query": "Reptes Empresa",
                 "needs_science": true,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "text_4mscj"
             },
             {
                 "name": "1.3 AAPP/s i/o Departaments que promou/en el repte/projecte",
@@ -260,7 +262,8 @@
                 "system_prompt": "Quin és el nom de l'entitat?",
                 "search_query": "Nom",
                 "needs_science": false,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "text_5dvoh"
             },
             {
                 "name": "Objectius",
@@ -268,7 +271,8 @@
                 "system_prompt": "Quina sol·lució volem portar amb els articles aportats?",
                 "search_query": "sector",
                 "needs_science": true,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "textarea_6icgr"
             },
             {
                 "name": "2.2. Justificació de la necessitat d’executar el projecte/repte i temps d’execució",
@@ -276,7 +280,8 @@
                 "system_prompt": "Per què és necessaria la recerca en aquest projecte?",
                 "search_query": "Innovació projecte",
                 "needs_science": false,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "textarea_7oijf"
             },
             {
                 "name": "2.3. Pressupost necessari / Pressupost necessari aproximat",
@@ -284,7 +289,8 @@
                 "system_prompt": "Quin és el presupost del projecte?",
                 "search_query": "Nom Empresa",
                 "needs_science": false,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "textarea_8ilak"
             }
         ]
     }

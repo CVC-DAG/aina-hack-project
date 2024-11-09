@@ -18,8 +18,8 @@ def fill_pdf(path_to_pdf, answers):
 
 if __name__ == '__main__':
     import json
-    with open('cupons_answers.json', 'r') as f:
-        answers = json.load(f)
+    with open('DiH4CAT_answers.json', 'r') as f:
+        answers = json.load(f)[0]
 
-    new_pdf_path = fill_pdf('dades/cupons.pdf', answers)
+    new_pdf_path = fill_pdf('data/DIH4CAT.pdf', answers)
     print(new_pdf_path)
