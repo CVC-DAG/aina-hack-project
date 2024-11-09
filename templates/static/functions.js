@@ -35,7 +35,7 @@ function submitWhichCall() {
         redirect: 'follow',
         body: formData,
     };
-    document.getElementById('submit_button_ok').style='display: none;'
+    document.getElementById('submit_button_ok').display='none'
     convElement.style.display = 'block'
     convElement.innerHTML = '<div class="loader">Carregant...</div>'
     fetch('/fill_selected_call', requestOptions)
@@ -46,5 +46,36 @@ function submitWhichCall() {
 }
 
 function submitRevision() {
+    let amendments = document.querySelectorAll(".responseText");
+    console.log(amendments)
+    let amendmentData = {}
+    let fullRequest = {
+        "amendments": amendmentData,
+        "form": document.querySelector('input[name="conv_select"]:checked').value
+    }
+    for (let ii = 0; ii < amendments.length; ii++) {
+        amendmentData[amendments[ii].id] = amendments[ii].value
+    }
+    console.log(fullRequest)
 
+    let requestOptions = {
+        method: 'POST',
+        redirect: 'follow',
+        body: JSON.stringify(fullRequest),
+        headers: {
+            "Content-Type": "application/json",
+          },
+    };
+    fetch('/esmenar/', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            let responseKeys = Object.keys(data)
+            for (let ii = 0; ii < responseKeys.length; ii++) {
+                let new_element = document.createElement("p")
+                new_element.innerText = data[responseKeys[ii]]
+                document.getElementById(responseKeys[ii]).replaceWith(new_element)
+            }
+        });
+    document.getElementById("button_esmenes").display = "none"
 }
