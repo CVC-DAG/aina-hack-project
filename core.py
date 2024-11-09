@@ -10,7 +10,11 @@ from flask import Flask, render_template, request
 import pandas as pd
 
 app = Flask(__name__, template_folder=TEMPLATES, static_folder=STATIC)
-scimatcher = SciMatcher(SCIMATCHER_PATH)
+scimatcher = SciMatcher(path_abstract=(EMBEDDINGS_ABSTRACTS, LOOK_UP_TABLE_ABSTRACTS),
+                        path_title=(EMBEDDINGS_TITLE, LOOK_UP_TABLE_TITLE),
+                        path_key_words=(EMBEDDINGS_KEY_WORDS, LOOK_UP_TABLE_KEY_WORDS),
+                        path_graph=GRAPH_PATH,
+                        scimatcher_db=SCIMATCHER_PATH)
 record_empreses = pd.read_csv(EMPRESES_RECORD, names=['url', 'vdb', 'metadata'])
 print(record_empreses)
 
@@ -50,11 +54,11 @@ def upload_business(business_url):
     empresa_nova = Empresa(business_url, None, 10, vdbpath=vdb_path, metadata_path=metapath)
 
     with open(EMPRESES_RECORD, 'a+') as handler:
-        handler.write(','.join([business_url, vdb_path, metapath]) + "\n")
+        handler.write("\n" + ','.join([business_url, vdb_path, metapath]))
 
     empreses[business_url] = empresa_nova
 
-    return empreses[-1]
+    return empresa_nova
 
 @app.route("/fill_selected_call", methods=["POST"])
 def process_fill_call():
@@ -69,7 +73,10 @@ def show_filled_form(answers):
     for slot in answers:
         output += f"<h3> {slot['name']} </h3>"
         output += f"<h4> {slot['explain']} </h4>"
-        output += f'<textarea class="responseText" rows=10>{slot["answer"]}<textarea/>'
+        if "No puc" in slot["answer"]:
+            output += f'<textarea class="responseText" rows=10> {slot["answer"]} </textarea>'
+        else:
+            output += f'<p> {slot["answer"]} </p>'
     return output
 
 
