@@ -23,6 +23,7 @@ function submitURLForm() {
     // formGroup.innerHTML = "<h2>Llest! Tria la convocatòria a la que vulguis aplicar.<\h2>"
 }
 
+
 function submitWhichCall() {
     let callValue = document.querySelector('input[name="conv_select"]:checked').value;
     let convElement = document.getElementById('convocatoria_emplenada')
@@ -34,6 +35,7 @@ function submitWhichCall() {
         redirect: 'follow',
         body: formData,
     };
+    document.getElementById('submit_button_ok').style='display: none;'
     convElement.style.display = 'contents'
     convElement.innerHTML = '<div class="loader">Carregant...</div>'
     fetch('/fill_selected_call', requestOptions)
