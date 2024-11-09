@@ -94,18 +94,36 @@ class SciMatcher:
             value_abstract = self.graph.nodes[best_abstract[0]]["content"]
         else:
             value_abstract = " "
+            
+            
         
         best_context_match = f"L'article que més s'apropa al que busques ha estat escrit per : {', '.join(self.get_target_nodes_by_edge_type(str(best_match), 'author'))} i el seu títol és {value_title}\n"
         if len(self.get_target_nodes_by_edge_type(str(best_match), "has")) != 0:
             best_context_match += f"La publicació conté les següents paraules claus: {self.get_target_nodes_by_edge_type(str(best_match), 'has')}\n"
         
         if len(self.get_target_nodes_by_edge_type(str(best_match), 'contain')) != 0:
-            best_context_match += f"i el seu abstract és:\n {value_abstract}"
+            best_context_match += f"i el seu abstract és:\n\n {value_abstract}"
+            
+            
+        s = f"Altres articles similars relacionats amb aquest són: {', '.join([self.extract_respose(similar_id, 'title') for similar_id in similar_context])}\n" #type: ignore
+        similar_authors = []
+        similar_paraules_clau = []
+        for smk in similar_context:
+            similar_paraules_clau.extend(self.get_target_nodes_by_edge_type(str(smk), 'has'))
+            similar_authors.extend(self.extract_respose(str(smk), edge="author"))
+
+        s += f"Els Autors dels papers són: {similar_authors}\n"
+            
+        s += f"Aquests Paper tenen aquestes aquestes paraules clau en comú: {similar_paraules_clau}"
+        
+
+        
+        best_context_match += s
         
         self.write_response(final_retrieve)
         
-#        self.db[empresa.url] = best_context_match
-#        json.dump(self.db, open(self.path, 'w'))
+        self.db[empresa.url] = best_context_match
+        json.dump(self.db, open(self.path, 'w'))
         
         return best_context_match, self.get_target_nodes_by_edge_type(str(best_match), 'author')[0]
     
