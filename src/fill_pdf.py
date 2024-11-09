@@ -7,6 +7,7 @@ def fill_pdf(path_to_pdf, answers):
     fields = fillpdfs.get_form_fields(path_to_pdf)
 
     for answer in answers:
+        print(answer)
         if type(answer['pdf_key']) == str:
             fields[answer['pdf_key']] = answer['answer']
 

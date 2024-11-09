@@ -47,7 +47,7 @@ function submitWhichCall() {
 
 function submitRevision() {
     let amendments = document.querySelectorAll(".responseText");
-    let fixedText = document.querySelectorAll(".fixedText");
+    let fixedText = document.querySelectorAll(".fixedResponse");
     console.log(amendments)
     let amendmentData = {}
     let correctData = {}
@@ -60,7 +60,7 @@ function submitRevision() {
         amendmentData[amendments[ii].id] = amendments[ii].value
     }
     for (let ii = 0; ii < fixedText.length; ii++) {
-        correctData[fixedText[ii].id] = fixedText[ii].text
+        correctData[fixedText[ii].id] = fixedText[ii].innerText
     }
     console.log(fullRequest)
 
@@ -75,7 +75,6 @@ function submitRevision() {
     fetch('/esmenar/', requestOptions)
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             let responseKeys = Object.keys(data)
             for (let ii = 0; ii < responseKeys.length; ii++) {
                 let new_element = document.createElement("p")
@@ -83,18 +82,23 @@ function submitRevision() {
                 document.getElementById(responseKeys[ii]).replaceWith(new_element)
                 correctData[responseKeys[ii]] = data[responseKeys[ii]]
             }
+            let pdfData = {"text": correctData, "form": document.querySelector('input[name="conv_select"]:checked').value}
+            console.log(pdfData)
+            let yetAnotherRequest = {
+                    method: 'POST',
+                    redirect: 'follow',
+                    body: JSON.stringify(pdfData),
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                };
+            fetch('/get_pdf', yetAnotherRequest)
+                .then(response => response.blob())
+                .then(data => {
+                    console.log("got the response")
+                })
+            document.getElementById("button_esmenes").display = "none"
         });
-    let pdfData = {"text": correctData, "form": document.querySelector('input[name="conv_select"]:checked').value}
-    let yetAnotherRequest = {
-            method: 'POST',
-            redirect: 'follow',
-            body: JSON.stringify(pdfData),
-            headers: {
-                "Content-Type": "application/json",
-            },
-        };
-    fetch('/get_pdf', yetAnotherRequest)
-        .then(response => response.json())
-        .then(data => {})
-    document.getElementById("button_esmenes").display = "none"
+
+
 }
