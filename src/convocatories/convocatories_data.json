@@ -168,7 +168,7 @@
                 "system_prompt": "Quin és el NIF de l'entitat representant de l'EDIH?",
                 "needs_science": true,
                 "needs_business": false,
-                "pdf_keys": "Text13"
+                "pdf_key": "Text13"
             },
             {
                 "name": "3.2. Descripció de les competències i coneixements experts del proveïdor relacionats amb el servei de testatge, experimentació i validació de tecnologia a prestar a l'empresa sol·licitant de l'ajut.",
@@ -229,13 +229,13 @@
         "bases_reguladores": "",
         "metadata":
         {
-            "obertura": "",
-            "tancament": "",
-            "convoca": "",
-            "tipus": "",
-            "modalitat": "",
-            "pressupost": "",
-            "mes_informacio": ""
+            "obertura": "01/01/2025",
+            "tancament": "31/12/2025",
+            "convoca": "CDIHub",
+            "tipus": "Subvenció",
+            "modalitat": "Anual",
+            "pressupost": "25K€",
+            "mes_informacio": "google.com"
         },
         "slots": [
             {
@@ -249,7 +249,7 @@
             {
                 "name": "1.2 Títol del Repte / Projecte",
                 "explain": "Títol del projecte",
-                "system_prompt": "Segons els articles científics provistos, digues, en català, el nom del projecte a solucionar.",
+                "system_prompt": "Segons els articles científics provistos, digues, en català, el nom del projecte a solucionar. Sigues ambiciosa i digues directament el títol.",
                 "search_query": "Reptes Empresa",
                 "needs_science": true,
                 "needs_business": true
@@ -257,8 +257,8 @@
             {
                 "name": "1.3 AAPP/s i/o Departaments que promou/en el repte/projecte",
                 "explain": "Nom de l'empresa o departament de l'empresa.",
-                "system_prompt": "Quin és el nom o departament de l'empresa",
-                "search_query": "Nom Empresa",
+                "system_prompt": "Quin és el nom de l'entitat?",
+                "search_query": "Nom",
                 "needs_science": false,
                 "needs_business": true
             },
@@ -273,8 +273,8 @@
             {
                 "name": "2.2. Justificació de la necessitat d’executar el projecte/repte i temps d’execució",
                 "explain": "",
-                "system_prompt": "Quin serà el temps d'execució del projecte?",
-                "search_query": "Nom Empresa",
+                "system_prompt": "Per què és necessaria la recerca en aquest projecte?",
+                "search_query": "Innovació projecte",
                 "needs_science": false,
                 "needs_business": true
             },

@@ -1,20 +1,33 @@
+import json
+import uuid
+
+from src.llm.get_answers import get_answers
 from src.ciencia.scimatcher import SciMatcher
 from src.empreses.empreses import Empresa
 from src.common import *
 
 from flask import Flask, render_template, request
 import pandas as pd
-
-import uuid
+import urllib.parse
 
 app = Flask(__name__, template_folder=TEMPLATES, static_folder=STATIC)
-scimatcher = SciMatcher(SCIMATCHER_PATH)
+scimatcher = SciMatcher(path_abstract=(EMBEDDINGS_ABSTRACTS, LOOK_UP_TABLE_ABSTRACTS),
+                        path_title=(EMBEDDINGS_TITLE, LOOK_UP_TABLE_TITLE),
+                        path_key_words=(EMBEDDINGS_KEY_WORDS, LOOK_UP_TABLE_KEY_WORDS),
+                        path_graph=GRAPH_PATH,
+                        scimatcher_db=SCIMATCHER_PATH)
 record_empreses = pd.read_csv(EMPRESES_RECORD, names=['url', 'vdb', 'metadata'])
 print(record_empreses)
 
-empreses = [Empresa(url, None, None, vdb, meta) for (url, vdb, meta) in zip(record_empreses['url'],
-                                                                            record_empreses['vdb'],
-                                                                            record_empreses['metadata'])]
+
+def load_empreses():
+    return {url: Empresa(url, None, None, vdb, meta)
+                for (url, vdb, meta) in zip(
+                    record_empreses['url'],
+                    record_empreses['vdb'],
+                    record_empreses['metadata'])
+                }
+empreses = load_empreses()
 print(empreses)
 @app.route("/upload_business/")
 def upload_business_page():
@@ -26,12 +39,14 @@ def process_upload_business():
     print(request.form["url"])
     upload_business(request.form["url"])
 
-
-    return "Success!"
+    return show_project_calls()
 
 def upload_business(business_url):
     global record_empreses
+    global empreses
+
     record_empreses = pd.read_csv(EMPRESES_RECORD, names=['url', 'vdb', 'metadata'])
+    empreses = load_empreses()
 
     if (record_empreses['url'] == business_url).any():
         return None
@@ -40,11 +55,92 @@ def upload_business(business_url):
     empresa_nova = Empresa(business_url, None, 10, vdbpath=vdb_path, metadata_path=metapath)
 
     with open(EMPRESES_RECORD, 'a+') as handler:
-        handler.write(','.join([business_url, vdb_path, metapath]) + "\n")
+        handler.write("\n" + ','.join([business_url, vdb_path, metapath]))
 
-    empreses.append(empresa_nova)
+    empreses[business_url] = empresa_nova
 
-    return empreses[-1]
+    return None
+
+@app.route("/fill_selected_call", methods=["POST"])
+def process_fill_call():
+    print("FILL CALL PROCESS")
+
+    answers, author = get_answers(empreses[request.form["url"]], scimatcher,  request.form["selected_form"])
+    output = show_filled_form(answers, author)
+    return output
+
+def show_filled_form(answers, author):
+
+    encoded_author = urllib.parse.quote(author)
+    output =   f"""<section  id="graph_cerca">
+        Cerca al Catàleg Científic:
+      <iframe src="{GRAPH_NX_WEB}&n={encoded_author}"
+              width="100%"
+              height="400"
+              style="border: none;">
+      </iframe>
+    </section>"""
+    complete = True
+    for ii, slot in enumerate(answers):
+        output += f"<h3> {slot['name']} </h3>"
+        output += f"<h4> {slot['explain']} </h4>"
+        if "No puc" in slot["answer"]:
+            output += f'<textarea class="responseText" id=slot_{ii} rows=10> Introdueixi més context </textarea>'
+            complete = False
+        else:
+            output += f'<p> {slot["answer"]} </p>'
+    if not complete:
+        output += '<button type="button" onClick="javascript:submitRevision()"> Envia Esmena amb context</button>'
+    else:
+        ...
+    return output
+
+
+REQUIRED_FIELDS = [
+    "obertura",
+    "tancament",
+    "convoca",
+    "tipus",
+    "pressupost",
+]
+
+def show_project_calls():
+    with open("src/convocatories/convocatories_data.json", "r") as f_convocatories:
+        data = json.load(f_convocatories)
+    output = "<table>"
+    output += create_call_header()
+
+    output += "<tbody>"
+    for ii, (name, call) in enumerate(data.items()):
+        metadata = call["metadata"]
+        output += create_call_row(name, metadata, ii==0)
+    output += "</tbody></table>"
+    output += '<button type="button" onClick="javascript:submitWhichCall()" id="submit_button_ok">Emplena sol·licitud</button>'
+    return output
+
+@app.route('/esmenar/')
+def process_esmenes():
+    pass
+
+def create_call_header():
+    output = """<thead><tr>"""
+    output += f"<th scope='col'>Selecció</th>"
+    output += f"<th scope='col'>Nom</th>"
+    for field in REQUIRED_FIELDS:
+        capitalised = field[0].upper() + field[1:]
+        output += f"<th scope='col'>{capitalised}</th>"
+    output += """</tr></thead>"""
+    return output
+
+def create_call_row(nom, metadata, checked):
+    output = """<tr>"""
+    output += f'<td><input type="radio" id="conv_select_{nom}" name="conv_select" value="{nom}" {"checked" if checked else ""}/></td>'
+    output += f"<td>{nom}</td>"
+    for field in REQUIRED_FIELDS:
+        output += f"<td>{metadata[field]}</td>"
+    output += """</tr></thead>"""
+    return output
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8001, debug=True)
