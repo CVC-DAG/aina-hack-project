@@ -47,6 +47,11 @@ def upload_business(business_url):
 
     return empreses[-1]
 
+@app.route("/fill_selected_call", methods=["POST"])
+def process_fill_call():
+    print("FILL CALL PROCESS")
+    return "<p>THIS IS THE OUTPUT DATA</p>"
+
 REQUIRED_FIELDS = [
     "obertura",
     "tancament",
@@ -66,6 +71,7 @@ def show_project_calls():
         metadata = call["metadata"]
         output += create_call_row(name, metadata, ii==0)
     output += "</tbody></table>"
+    output += '<button type="button" onClick="javascript:submitWhichCall()">Emplena sol·licitud</button>'
     return output
 
 def create_call_header():
