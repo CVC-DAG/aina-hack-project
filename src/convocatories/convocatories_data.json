@@ -4,13 +4,24 @@
 
         "explain": "",
         "bases_reguladores": "",
+        "metadata":
+        {
+            "obertura": "30/05/2024",
+            "tancament": "26/7/2024",
+            "convoca": "acció",
+            "tipus": "Subvenció (mínims)",
+            "modalitat": "concurrència simple",
+            "pressupost": "1.4M€",
+            "mes_informacio": "https://www.accio.gencat.cat/ca/serveis/innovacio/innovacio-empresarial/cupons-accio-a-la-competitivitat-de-lempresa/#cupons-tecnologies"
+        },
         "slots": [{
             "name": "Empresa Beneficiària",
             "explain": "Nom de l'empresa que sol·licita la tranferència.",
             "system_prompt": "Quin és el nom de l'empresa?",
             "search_query": "Nom de l'empresa",
             "needs_science": false,
-            "needs_business": true
+            "needs_business": true,
+            "pdf_key": "empresa"
         },
         {
             "name": "1.1 Descripció de l'empresa i de l'activitat de l'empresa",
@@ -18,7 +29,8 @@
             "system_prompt": "Quin es el sector i activitat principal de l'empresa?",
             "search_query": "activitat",
             "needs_science": false,
-            "needs_business": true
+            "needs_business": true,
+            "pdf_key": "activat empresa"
         },
         {
             "name": "1.2 Web de l'Empresa",
@@ -26,7 +38,8 @@
             "system_prompt": "Quina és la web de l'empresa?",
             "search_query": "web",
             "needs_science": false,
-            "needs_business": true
+            "needs_business": true,
+            "pdf_key": "web"
         },
         {
             "name": "Xifres de negoci de l'empresa (tenint en compte totes les Unitats de Negoci)",
@@ -34,7 +47,8 @@
             "system_prompt": "Quines són les xifres de negoci de l'empresa?",
             "search_query": "xifres de negoci",
             "needs_science": false,
-            "needs_business": true
+            "needs_business": true,
+            "pdf_key": "FACTURACIÓ \\xa02020"
         },
 
         {
@@ -45,7 +59,8 @@
 
             "needs_science": false,
             "needs_business": true,
-            "choose": ["Explorant", "Competent", "Expert", "Líder"]
+            "choose": ["Explorant", "Competent", "Expert", "Líder"],
+            "pdf_key": ["Test Explorant", "Test Competent", "Test Expert", "Test Líder"]
         },
             {
                 "name": "2.1. Títol descriptiu del servei",
@@ -53,7 +68,8 @@
                 "system_prompt": "Quin és el títol de l'activitat que l'empresa planteja solucionar amb el centre científic?",
                 "search_query": "títol de l'activitat",
                 "needs_science": true,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "21 Titol SErvei"
             },
             {
                 "name": "2.2. Indicar quines tecnologies digitals avançades es contemplen en el servei d'assessorament pel testatge, experimentació i validació de l'ús i aplicació de les tecnologies digitals avançades (es pot marcar més d'una opció): ",
@@ -63,7 +79,8 @@
                 "needs_science": true,
                 "needs_business": true,
                 "choose": ["Fabricació additiva/i3D Printing", "Robòtica i manufactura avançada ( inclou realitat virtual i realitat augmentada o mixta,Cloud/Edge,Simulació i bessó digital)",
-                           "Supercomputació i Quàntica", "Supercomputació i Quàntica", "Ciberseguretat", "Intel·ligència artificial ( Inclou Big Data)"]
+                           "Supercomputació i Quàntica", "Supercomputació i Quàntica", "Ciberseguretat", "Intel·ligència artificial ( Inclou Big Data)"],
+                "pdf_key": ["Fabricació additiva", "Tec Ciberseguretat", "Tec IA I BIGDATA", "Tec Supercomputació i Q", "Robotica", "Tec connectivitat intel·ligent", "Tec Fotònica"]
             },
             {
                 "name": "2.3 Indicar el tipus de servei vinculat a l'assessorament (es pot marcar més d'una opció):",
@@ -72,7 +89,8 @@
                 "search_query": "tipus de servei",
                 "needs_science": true,
                 "needs_business": true,
-                "choose": ["Estudis de viabilitat tecnològica", "Anàlisis de nous models de negoci basats en l'ús de tecnologies digitals avançades.", "Serveis de prova de concepte i validació de resultats.", "Desenvolupament de prototips i pilots (testatge del producte o servei)."]
+                "choose": ["Estudis de viabilitat tecnològica", "Anàlisis de nous models de negoci basats en l'ús de tecnologies digitals avançades.", "Serveis de prova de concepte i validació de resultats.", "Desenvolupament de prototips i pilots (testatge del producte o servei)."],
+                "pdf_key": ["23 Tipus estudis via", "23 tipus prova concepte", "23 tipus prototip i pilot", "32 tipus analisis nous model negoci"]
             },
             {
                 "name": "2.4.1. Descriure en què consistirà el servei a realitzar i l'abast del mateix. (es recomana un mínim de 8 línies)",
@@ -80,7 +98,8 @@
                 "system_prompt": "En què consistirà el servei a realitzar i l'abast del mateix?",
                 "search_query": "servei",
                 "needs_science": true,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "241 servei"
             },
             {
                 "name": "2.4.2. Descriure el repte principal i reptes associats que pretén resoldre l'empresa amb el testatge, experimentació i validació de l'ús i aplicació de les tecnologies digitals avançades",
@@ -88,7 +107,8 @@
                 "system_prompt": "Descriu el repte principal i reptes associats que pretén resoldre l'empresa?",
                 "search_query": "technologies",
                 "needs_science": true,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "242 reptes"
             },
             {
                 "name": "2.4.3. Descriure quin tipus de resultats s’esperen del servei ( Els resultats obtinguts han de ser algun dels que s’indiquen en l'apartat 6 del annex 2 )",
@@ -96,7 +116,8 @@
                 "system_prompt": "Quins són els resultats esperats del servei?",
                 "search_query": "resultats esperats",
                 "needs_science": true,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "243 tipus resultats esperats"
             },
             {
                 "name": "2.4.4. Llistar i descriure el/s lliurable/s previstos",
@@ -104,14 +125,16 @@
                 "system_prompt": "Quins són els lliurables previstos?",
                 "search_query": "lliurables previstos",
                 "needs_science": true,
-                "needs_business": true
+                "needs_business": true,
+                "pdf_key": "244 lliurables"
             },
             {
                 "name": "NIF del proveïdor",
                 "explain": "NIF del centre de recerca",
                 "system_prompt": "Quin és el NIF del proveïdor?",
                 "needs_science": true,
-                "needs_business": false
+                "needs_business": false,
+                "pdf_key": "NIF proveidor"
             },
             {
                 "name": "Indicar el tipus de vinculació amb un EDIH",
@@ -120,56 +143,64 @@
                 "needs_science": true,
                 "needs_business": false,
                 "choose_model": ["membre d'un EDIH", "entitat vinculada a un EDIH"],
-                "choose": ["Membre d'un European Digital Innovation Hub que hagi estat seleccionat per la Comissió Europea per rebre finançament del programa Europa Digital", "Entitat formalment vinculada a un European Digital Innovation Hub que hagi estat seleccionat per la Comissió Europea per rebre finançament del programa Europa Digital."]
+                "choose": ["Membre d'un European Digital Innovation Hub que hagi estat seleccionat per la Comissió Europea per rebre finançament del programa Europa Digital", "Entitat formalment vinculada a un European Digital Innovation Hub que hagi estat seleccionat per la Comissió Europea per rebre finançament del programa Europa Digital."],
+                "pdf_key": ["Membre dun European Digital Innovation Hub que hagi estat seleccionat per la Comissió", "Entitat formalment vinculada a un European Digital Innovation Hub que hagi estat seleccionat"]
             },
             {
                 "name": "Nom del EDIH",
                 "explain": "Nom del EDIH al que està vinculat.",
                 "system_prompt": "Quin és el nom del EDIH?",
                 "needs_science": true,
-                "needs_business": false
+                "needs_business": false,
+                "pdf_key": "Nom Edih"
             },
             {
                 "name": "Nom de l'Entitat representant de l'EDIH",
                 "explain": "Nom de l'entitat representant de l'EDIH",
                 "system_prompt": "Quin és el nom de l'entitat representant de l'EDIH?",
                 "needs_science": true,
-                "needs_business": false
+                "needs_business": false,
+                "pdf_key": "represent Edih"
             },
             {
                 "name": "NIF de l'Entitat representant de l'EDIH",
                 "explain": "NIF de l'entitat representant de l'EDIH",
                 "system_prompt": "Quin és el NIF de l'entitat representant de l'EDIH?",
                 "needs_science": true,
-                "needs_business": false
+                "needs_business": false,
+                "pdf_key": "Text13"
             },
             {
                 "name": "3.2. Descripció de les competències i coneixements experts del proveïdor relacionats amb el servei de testatge, experimentació i validació de tecnologia a prestar a l'empresa sol·licitant de l'ajut.",
                 "explain": "Competencies i coneixements del centre d\"investigació.",
                 "system_prompt": "Quines són les competències i coneixements experts del proveïdor?",
                 "needs_science": true,
-                "needs_business": false
+                "needs_business": false,
+                "pdf_key": "32 projectes previs"
             },
             {
                 "name": "3.3. Experiència prèvia en la prestació de serveis especialitzats de digitalització a les empreses relacionats amb el servei de testatge, experimentació i validació de tecnologia a prestar a l'empresa sol·licitant de l'ajut.",
                 "explain": "Experiencia prèvia del centre d\"investigació.",
                 "system_prompt": "Quina és l'experiència prèvia del centre d\"investigació?",
                 "needs_science": true,
-                "needs_business": false
+                "needs_business": false,
+                "pdf_key": "33 serveis previs"
             },
             {
                 "name": "3.4. Nom del servei ofert a través del European Digital Innovation Hub",
                 "explain": "Nom del servei ofert a través del EDIH.",
                 "system_prompt": "Quin és el nom del servei ofert a través del EDIH?",
                 "needs_science": true,
-                "needs_business": false
+                "needs_business": false,
+                "pdf_key": "34 nom servei"
             },
             {
                 "name": "3.5. Relació de les infraestructures i equipaments propis del proveïdor oferts a través del European Digital Innovation Hub relacionats amb el servei a prestar a l'empresa sol·licitant de l'ajut",
                 "explain": "Infraestructures i equipaments del centre d\"investigació.",
                 "system_prompt": "Quines són les infraestructures i equipaments del centre d\"investigació?",
                 "needs_science": true,
-                "needs_business": false
+                "needs_business": false,
+                "pdf_key": "35 infraestructures"
             },
             {
                 "name": "El cost subvencionable que es presenta és igual o superior a 15.000 €? (Indicar amb X una de les opcions proposades):",
@@ -178,13 +209,80 @@
                 "search_query": "cost subvencionable",
                 "needs_science": false,
                 "needs_business": true,
-                "choose": ["Sí", "No"]
+                "choose": ["Sí", "No"],
+                "pdf_key": ["41 <15k", "41 >15k"]
             },
             {
                 "name": "4.2. Detall del pressupost",
                 "explain": "Pressupost del servei.",
                 "system_prompt": "Quin és el presupost del projecte?",
                 "search_query": "presupost",
+                "needs_science": false,
+                "needs_business": true,
+                "pdf_key": "Total pressupost"
+            }
+        ]
+    },
+        "DiH4CAT": {
+
+        "explain": "",
+        "bases_reguladores": "",
+        "metadata":
+        {
+            "obertura": "",
+            "tancament": "",
+            "convoca": "",
+            "tipus": "",
+            "modalitat": "",
+            "pressupost": "",
+            "mes_informacio": ""
+        },
+        "slots": [
+            {
+                "name": "1.1 Node responsable i contacte",
+                "explain": "Responsable de l'Empresa",
+                "system_prompt": "Qui és el responsable de l'empresa?",
+                "search_query": "Responsable Empresa",
+                "needs_science": false,
+                "needs_business": true
+            },
+            {
+                "name": "1.2 Títol del Repte / Projecte",
+                "explain": "Títol del projecte",
+                "system_prompt": "Segons els articles científics provistos, digues, en català, el nom del projecte a solucionar. Sigues ambiciosa i digues directament el títol.",
+                "search_query": "Reptes Empresa",
+                "needs_science": true,
+                "needs_business": true
+            },
+            {
+                "name": "1.3 AAPP/s i/o Departaments que promou/en el repte/projecte",
+                "explain": "Nom de l'empresa o departament de l'empresa.",
+                "system_prompt": "Quin és el nom de l'entitat?",
+                "search_query": "Nom",
+                "needs_science": false,
+                "needs_business": true
+            },
+            {
+                "name": "Objectius",
+                "explain": "Objectius del projecte.",
+                "system_prompt": "Quina sol·lució volem portar amb els articles aportats?",
+                "search_query": "sector",
+                "needs_science": true,
+                "needs_business": true
+            },
+            {
+                "name": "2.2. Justificació de la necessitat d’executar el projecte/repte i temps d’execució",
+                "explain": "",
+                "system_prompt": "Per què és necessaria la recerca en aquest projecte?",
+                "search_query": "Innovació projecte",
+                "needs_science": false,
+                "needs_business": true
+            },
+            {
+                "name": "2.3. Pressupost necessari / Pressupost necessari aproximat",
+                "explain": "Presupost del projecte.",
+                "system_prompt": "Quin és el presupost del projecte?",
+                "search_query": "Nom Empresa",
                 "needs_science": false,
                 "needs_business": true
             }
