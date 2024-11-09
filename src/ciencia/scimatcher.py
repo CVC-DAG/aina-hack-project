@@ -11,7 +11,7 @@ import numpy as np
 import networkx as nx
 import numpy as np
 from collections import defaultdict
-
+import random
 import pdb
 
 class SciMatcher:
@@ -59,8 +59,6 @@ class SciMatcher:
     def compute_match(self, empresa: Empresa):
         # WHATEVER MATCHING IS DONE HERE FOR RELEVANT PAPERS AND AUTHORS
         retrieval_title = []
-        retrieval_abstract = []
-        retrieval_key_words = []
         
         query_results = empresa.query_vdb("Tecnologies que busqueu desenvolupar", min_len=10, max_len=150, num_results=2000)
         
@@ -74,16 +72,6 @@ class SciMatcher:
             title_best_matches = self.title_look_up_table[title_best_matches]
             retrieval_title.extend(list(zip(title_best_matches, distances_title)))
             
-            abstract_best_matches, distances_abstract = self.vdb_abstract.get_nns_by_vector(qemb, 20, include_distances=True)
-            abstract_best_matches = self.abstract_look_up_table[abstract_best_matches]
-            retrieval_abstract.extend(list(zip(abstract_best_matches, distances_abstract)))
-            
-            key_words_best_matches, distances_key_words = self.vdb_key_words.get_nns_by_vector(qemb, 20, include_distances=True)
-            key_words_best_matches = self.key_word_look_up_table[key_words_best_matches]
-            retrieval_key_words.extend(list(zip(key_words_best_matches, distances_key_words)))
-            
-        retrieval_abstract = sorted(retrieval_abstract, key= lambda x: x[1])
-        retrieval_key_words = sorted(retrieval_key_words, key=lambda x: x[1])
         retrieval_title = sorted(retrieval_title, key=lambda x: x[1])
         
         
@@ -91,45 +79,100 @@ class SciMatcher:
         final_retrieve = sorted(final_retrieve, key=lambda x: x[1])
         
         best_match = final_retrieve[0][0]
+        similar_context = self.get_similar_titles(str(best_match))
         
         
+        title_best_match = self.get_target_nodes_by_edge_type(str(best_match), 'title')
+        if len(title_best_match) != 0:
+            value_title = self.graph.nodes[title_best_match[0]]["content"]
+        else:
+            value_title = " "
+            
         
-        title_best_match = self.get_target_nodes_by_edge_type(str(best_match), 'title')[0]
-        value_title = self.graph.nodes[title_best_match]["content"]
-        
-        best_abstract = self.get_target_nodes_by_edge_type(str(best_match), 'contain')[0]
-        value_abstract = self.graph.nodes[best_abstract]["content"]
+        best_abstract = self.get_target_nodes_by_edge_type(str(best_match), 'contain')
+        if len(best_abstract) != 0:
+            value_abstract = self.graph.nodes[best_abstract[0]]["content"]
+        else:
+            value_abstract = " "
+            
+            
         
         best_context_match = f"L'article que més s'apropa al que busques ha estat escrit per : {', '.join(self.get_target_nodes_by_edge_type(str(best_match), 'author'))} i el seu títol és {value_title}\n"
         if len(self.get_target_nodes_by_edge_type(str(best_match), "has")) != 0:
             best_context_match += f"La publicació conté les següents paraules claus: {self.get_target_nodes_by_edge_type(str(best_match), 'has')}\n"
         
         if len(self.get_target_nodes_by_edge_type(str(best_match), 'contain')) != 0:
-            best_context_match += f"i el seu abstract és:\n {value_abstract}"
+            best_context_match += f"i el seu abstract és:\n\n {value_abstract}"
+            
+            
+        s = f"Altres articles similars relacionats amb aquest són: {', '.join([self.extract_respose(similar_id, 'title') for similar_id in similar_context])}\n" #type: ignore
+        similar_authors = []
+        similar_paraules_clau = []
+        for smk in similar_context:
+            similar_paraules_clau.extend(self.get_target_nodes_by_edge_type(str(smk), 'has'))
+            similar_authors.extend(self.extract_respose(str(smk), edge="author"))
+
+        s += f"Els Autors dels papers són: {similar_authors}\n"
+            
+        s += f"Aquests Paper tenen aquestes aquestes paraules clau en comú: {similar_paraules_clau}"
+        
+
+        
+        best_context_match += s
         
         self.write_response(final_retrieve)
         
-#        self.db[empresa.url] = best_context_match
-#        json.dump(self.db, open(self.path, 'w'))
+        self.db[empresa.url] = best_context_match
+        json.dump(self.db, open(self.path, 'w'))
         
         return best_context_match, self.get_target_nodes_by_edge_type(str(best_match), 'author')[0]
     
+
+    def get_similar_titles(self, publication_id, top_n=5):
+        """
+        Retrieve the top N titles similar to the title of the given publication.
+        
+        Parameters:
+        - graph: A NetworkX graph where nodes represent publications and authors.
+        - publication_id: The node ID of the publication to compare.
+        - top_n: The number of similar titles to retrieve.
+        
+        Returns:
+        - List of tuples (title, similarity_score) of the top N most similar titles.
+        """
+        # Step 1: Retrieve the title of the target publication
+        target_title = self.extract_respose(publication_id, "title") #seself.get_target_nodes_by_edge_type() self.graph.nodes[publication_id].get('title', '')
+        print(target_title)
+
+
+        # Step 2: Navigate to connected authors and their other publications
+        related_publications = set()
+        for u, v, content in self.graph.edges(publication_id, data=True):
+            if content["relationship"] == "author":
+                for uu, vv, contentt in self.graph.edges(str(v),data=True):
+                    if contentt["relationship"] == "author" and (vv != u):
+                        related_publications.add(vv)
+                        
+        
+        return random.sample(list(related_publications), top_n)
     
-    
+
+    def extract_respose(self, response, edge):
+        title_best_match = self.get_target_nodes_by_edge_type(str(response), edge)
+        if isinstance(title_best_match, list) and len(title_best_match) > 1:
+            return title_best_match
+
+        elif isinstance(title_best_match, list) and len(title_best_match) != 0:
+            value_title = self.graph.nodes[title_best_match[0]]
+            value_title = value_title.get("content")
+            return value_title
+
+        else:
+            return "res"
+
     def write_response(self, list_reponses):
         
-        def extract_respose(response, edge):
-            title_best_match = self.get_target_nodes_by_edge_type(str(response), edge)
-            if isinstance(title_best_match, list) and len(title_best_match) > 1:
-                return title_best_match
 
-            elif isinstance(title_best_match, list) and len(title_best_match) != 0:
-                value_title = self.graph.nodes[title_best_match[0]]
-                value_title = value_title.get("content")
-                return value_title
-
-            else:
-                return "res"
             
         top_responses = list_reponses[:10]
         json_response =  []
@@ -139,9 +182,9 @@ class SciMatcher:
             }
             index_match = response[0]
             
-            sub_response["title"] = extract_respose(index_match, "title")
-            sub_response["keys"] = extract_respose(index_match, "has")
-            sub_response["authors"] = extract_respose(index_match, "author")
+            sub_response["title"] = self.extract_respose(index_match, "title")
+            sub_response["keys"] = self.extract_respose(index_match, "has")
+            sub_response["authors"] = self.extract_respose(index_match, "author")
             json_response.append(sub_response)
         
         self.write_json(data=json_response, filename="response.json")  
@@ -200,6 +243,7 @@ class SciMatcher:
             neighbor for neighbor in self.graph.neighbors(node)
             if self.graph.edges[node, neighbor].get('relationship') == edge_type
         ]
+        
         return target_nodes
 
     def get_match(self, empresa: Empresa):

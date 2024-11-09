@@ -3,7 +3,7 @@ dades/*
 data/*
 prompts/*
 src/.env
-
+response.json
 *.pyc
 
 .idea/

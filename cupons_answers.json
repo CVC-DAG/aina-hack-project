@@ -8,7 +8,7 @@
             "needs_science": false,
             "needs_business": true,
             "pdf_key": "empresa",
-            "answer": "No puc respondre."
+            "answer": "Nom: La Foneria. CULT-TIC SLU."
         },
         {
             "name": "1.1 Descripci\u00f3 de l'empresa i de l'activitat de l'empresa",
@@ -18,7 +18,7 @@
             "needs_science": false,
             "needs_business": true,
             "pdf_key": "activat empresa",
-            "answer": "El sector i activitat principal de l'empresa \u00e9s la gesti\u00f3 del patrimoni cultural i la seva recuperaci\u00f3 online, aix\u00ed com la intel\u00b7lig\u00e8ncia artificial en tasques humanes repetitives."
+            "answer": "La Foneria \u00e9s una empresa que ofereix serveis de disseny de projectes utilitzant tecnologies al seu abast per fer el treball eficient, i si \u00e9s necessari, els adapta a les necessitats dels clients. Tamb\u00e9 ofereixen serveis d'intel\u00b7lig\u00e8ncia artificial per accelerar processos repetitius del dia a dia. L'equip de La Foneria est\u00e0 format per professionals en humanitats digitals, hist\u00f2ria, narrativa i comunicaci\u00f3, juntament amb un grup de programadors i dissenyadors especialitzats. La seva finalitat \u00e9s aplicar tecnologies de la informaci\u00f3 per a la gesti\u00f3 del patrimoni cultural i la seva recuperaci\u00f3 en l\u00ednia, i la intel\u00b7lig\u00e8ncia artificial en tasques humanes repetitives com la descripci\u00f3, extracci\u00f3 de dades, transcripci\u00f3 o indexaci\u00f3 per multiplicar el potencial del treball diari."
         },
         {
             "name": "1.2 Web de l'Empresa",
@@ -28,7 +28,7 @@
             "needs_science": false,
             "needs_business": true,
             "pdf_key": "web",
-            "answer": "No puc respondre."
+            "answer": "La p\u00e0gina web de l'empresa \u00e9s https://www.lafoneria.com/ca/"
         },
         {
             "name": "Xifres de negoci de l'empresa (tenint en compte totes les Unitats de Negoci)",
@@ -69,7 +69,7 @@
             "needs_science": true,
             "needs_business": true,
             "pdf_key": "21 Titol SErvei",
-            "answer": "El t\u00edtol de l'activitat que l'empresa planteja solucionar amb el centre cient\u00edfic \u00e9s el desenvolupament d'una tecnologia d'intel\u00b7lig\u00e8ncia artificial (un model de llenguatge natural) per donar respostes a preguntes sobre una tem\u00e0tica determinada a partir d'entrevistes indexades."
+            "answer": "No puc respondre."
         },
         {
             "name": "2.2. Indicar quines tecnologies digitals avan\u00e7ades es contemplen en el servei d'assessorament pel testatge, experimentaci\u00f3 i validaci\u00f3 de l'\u00fas i aplicaci\u00f3 de les tecnologies digitals avan\u00e7ades (es pot marcar m\u00e9s d'una opci\u00f3): ",
@@ -95,7 +95,7 @@
                 "Tec connectivitat intel\u00b7ligent",
                 "Tec Fot\u00f2nica"
             ],
-            "answer": "La tecnologia que es far\u00e0 servir per dur a terme la tasca \u00e9s: Fabricaci\u00f3 additiva/i3D Printing, Rob\u00f2tica i manufactura avan\u00e7ada ( inclou realitat virtual i realitat augmentada o mixta,Cloud/Edge,Simulaci\u00f3 i bess\u00f3 digital), Supercomputaci\u00f3 i Qu\u00e0ntica, Ciberseguretat, Intel\u00b7lig\u00e8ncia artificial ( Inclou Big Data)"
+            "answer": "Les tecnologies que es faran servir per dur a terme la tasca s\u00f3n: Fabricaci\u00f3 additiva/i3D Printing, Rob\u00f2tica i manufactura avan\u00e7ada ( inclou realitat virtual i realitat augmentada o mixta,Cloud/Edge,Simulaci\u00f3 i bess\u00f3 digital), Supercomputaci\u00f3 i Qu\u00e0ntica, Ciberseguretat, Intel\u00b7lig\u00e8ncia artificial ( Inclou Big Data)"
         },
         {
             "name": "2.3 Indicar el tipus de servei vinculat a l'assessorament (es pot marcar m\u00e9s d'una opci\u00f3):",
@@ -116,7 +116,7 @@
                 "23 tipus prototip i pilot",
                 "32 tipus analisis nous model negoci"
             ],
-            "answer": "La sol\u00b7licitud \u00e9s per a estudis de viabilitat tecnol\u00f2gica."
+            "answer": "Catalunya i d'alguns arxius municipals per establir els protocols d'actuaci\u00f3 per a projectes de recerca i arxius a fi de facilitar el tractament i la difusi\u00f3 d'entrevistes en l\u00ednia."
         },
         {
             "name": "2.4.1. Descriure en qu\u00e8 consistir\u00e0 el servei a realitzar i l'abast del mateix. (es recomana un m\u00ednim de 8 l\u00ednies)",
@@ -126,7 +126,7 @@
             "needs_science": true,
             "needs_business": true,
             "pdf_key": "241 servei",
-            "answer": "En qu\u00e8 consistir\u00e0 el servei a realitzar i l'abast del mateix?"
+            "answer": "No puc respondre."
         },
         {
             "name": "2.4.2. Descriure el repte principal i reptes associats que pret\u00e9n resoldre l'empresa amb el testatge, experimentaci\u00f3 i validaci\u00f3 de l'\u00fas i aplicaci\u00f3 de les tecnologies digitals avan\u00e7ades",
@@ -136,7 +136,7 @@
             "needs_science": true,
             "needs_business": true,
             "pdf_key": "242 reptes",
-            "answer": "El repte principal \u00e9s donar una experi\u00e8ncia d'usuari senzilla a projectes grans i complexos."
+            "answer": "El repte principal i reptes associats que pret\u00e9n resoldre l'empresa \u00e9s donar una experi\u00e8ncia d'usuari senzilla a projectes grans i complexos."
         },
         {
             "name": "2.4.3. Descriure quin tipus de resultats s\u2019esperen del servei ( Els resultats obtinguts han de ser algun dels que s\u2019indiquen en l'apartat 6 del annex 2 )",
@@ -146,7 +146,7 @@
             "needs_science": true,
             "needs_business": true,
             "pdf_key": "243 tipus resultats esperats",
-            "answer": "Els resultats esperats del servei s\u00f3n: Escalabilitat, Ens adaptem als vostres ritmes i pressupostos. Transformar amb \u00e8xit necessita de cocci\u00f3 a foc lent. Analitzem les vostres dades en l\u00ednia, identifiquem els vostres p\u00fablics, clients o usuaris, i pactem amb vosaltres l'estrat\u00e8gia digital a seguir per assolir els objectius que us marqueu."
+            "answer": "Els resultats esperats del servei s\u00f3n:\n- Enviament de newsletters, comunicacions comercials i promocions.\n- Gestionar les consultes o qualsevol tipus de petici\u00f3 que sigui realitzada a trav\u00e9s de les formes de contacte que es posen a disposici\u00f3 a la p\u00e0gina web.\n- Gestionar les incid\u00e8ncies i el manteniment de la web."
         },
         {
             "name": "2.4.4. Llistar i descriure el/s lliurable/s previstos",
@@ -194,7 +194,7 @@
             "needs_science": true,
             "needs_business": false,
             "pdf_key": "Nom Edih",
-            "answer": "El nom de l'EDIH \u00e9s Centre de Visi\u00f3 per Computador."
+            "answer": "El nom del EDIH \u00e9s Centre de Visi\u00f3 per Computador."
         },
         {
             "name": "Nom de l'Entitat representant de l'EDIH",
@@ -203,7 +203,7 @@
             "needs_science": true,
             "needs_business": false,
             "pdf_key": "represent Edih",
-            "answer": "El nom de l'entitat representant de l'EDIH \u00e9s el Centre de Visi\u00f3 per Computador."
+            "answer": "El nom de l'entitat representant de l'EDIH \u00e9s Centre de Visi\u00f3 per Computador."
         },
         {
             "name": "NIF de l'Entitat representant de l'EDIH",
@@ -221,7 +221,7 @@
             "needs_science": true,
             "needs_business": false,
             "pdf_key": "32 projectes previs",
-            "answer": "Les compet\u00e8ncies i coneixements experts del prove\u00efdor s\u00f3n:\n- Word spotting\n- Handwritten word spotting on historical documents\n- Efficient and Scalable Handwritten Word Spotting on Historical Documents using Bag of Visual Words\n- Visual signature\n- Word spotting on historical handwritten documents\n- Segmentation-based word spotting\n- Segmentation-free spotting\n- Semantic clustering\n- Codebook generation\n- Codebook encoding\n- Signature dimensionalitat"
+            "answer": "Les compet\u00e8ncies i coneixements experts del prove\u00efdor s\u00f3n: Processament d'imatges, Processament de senyals, Intel\u00b7lig\u00e8ncia Artificial, Machine Learning, Deep Learning, visi\u00f3 per computador, an\u00e0lisi de documents i reconeixement de documents."
         },
         {
             "name": "3.3. Experi\u00e8ncia pr\u00e8via en la prestaci\u00f3 de serveis especialitzats de digitalitzaci\u00f3 a les empreses relacionats amb el servei de testatge, experimentaci\u00f3 i validaci\u00f3 de tecnologia a prestar a l'empresa sol\u00b7licitant de l'ajut.",
@@ -230,7 +230,7 @@
             "needs_science": true,
             "needs_business": false,
             "pdf_key": "33 serveis previs",
-            "answer": "L'experi\u00e8ncia pr\u00e8via del Centre de Visi\u00f3 per Computador \u00e9s la seg\u00fcent: The best context has been written by: David Aldavert and the title is Efficient and Scalable Handwritten Word Spotting on Historical Documents using Bag of Visual Words"
+            "answer": "No puc respondre."
         },
         {
             "name": "3.4. Nom del servei ofert a trav\u00e9s del European Digital Innovation Hub",
@@ -278,5 +278,5 @@
             "answer": "No puc respondre."
         }
     ],
-    "David Aldavert"
+    "Mickael Coustaty"
 ]
