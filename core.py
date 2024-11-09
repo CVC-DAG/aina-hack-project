@@ -86,7 +86,7 @@ def show_filled_form(answers, author):
     for ii, slot in enumerate(answers):
         output += f"<h3> {slot['name']} </h3>"
         output += f"<h4> {slot['explain']} </h4>"
-        if "No puc".lower() in slot["answer"].lower():
+        if "no puc" in slot["answer"].lower() or "no puedo" in slot["answer"].lower():
             output += f'<textarea class="responseText" id="slot_{ii}" rows=10> Introdueixi més context </textarea>'
             complete = False
         else:
