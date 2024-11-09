@@ -4,9 +4,10 @@ import uuid
 from src.llm.get_answers import get_answers
 from src.ciencia.scimatcher import SciMatcher
 from src.empreses.empreses import Empresa
+from src.fill_pdf import fill_pdf
 from src.common import *
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_file
 import pandas as pd
 import urllib.parse
 from src.local_calls import call_salamandra
@@ -144,6 +145,20 @@ def process_esmenes():
         slots[slot_index]["answer"] = text
 
     return answer
+
+@app.route("/get_pdf", methods=["POST"])
+def get_pdf():
+    data = request.get_json()
+    with open("src/convocatories/convocatories_data.json", "r") as f_convocatories:
+        convs = json.load(f_convocatories)
+        slots = convs[data["form"]]["slots"]
+
+    for slot_name, text in data["text"].items():
+        slot_index = get_slot_index(slot_name)
+        slots[slot_index] = text
+
+    pdf_path = fill_pdf(convs[data["form"]]["metadata"]["pdf_path"], slots)
+    return send_file(pdf_path)
 
 def create_call_header():
     output = """<thead><tr>"""
