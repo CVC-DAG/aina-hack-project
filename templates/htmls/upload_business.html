@@ -6,14 +6,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Page</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='functions.js') }}"></script>
 </head>
 <body>
-    <h1>Digue'ns què vols</h1>
-    <form action="/submit_upload_business" method="post">
-        <div class="form-group">
+    <section>
+        <h1>Cerquem el teu nou col·laborador científic</h1>
+    </section>
+    <section id="form-group">
+        Farem servir la URL de la teva empresa per a trobar el vostre camp d'acció.
+        <form id="url-form">
           <label for="url">Lloc web de la teva empresa</label>
           <input type="text" id="url_field" name="url" required>
-        </div>
-    </form>
+        </form>
+    </section>
+    <section id="convocatories">
+
+    </section>
+    <section id="convocatoria_emplenada">
+
+    </section>
 </body>
 </html>

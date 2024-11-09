@@ -36,7 +36,8 @@ h1 {
   font-size: 2.5rem;
   font-weight: 600;
   color: #2c3e50;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  display: block;
 }
 
 h2 {
@@ -117,7 +118,8 @@ a:hover {
   text-decoration: underline;
 }
 
-/* Responsive Design */
+/*
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
@@ -131,3 +133,4 @@ a:hover {
     font-size: 0.9rem;
   }
 }
+*/

@@ -26,8 +26,7 @@ def process_upload_business():
     print(request.form["url"])
     upload_business(request.form["url"])
 
-
-    return "Success!"
+    return render_template("list_calls.html")
 
 def upload_business(business_url):
     global record_empreses
