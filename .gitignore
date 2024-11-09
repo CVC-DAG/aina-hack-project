@@ -1,5 +1,6 @@
 models/*
 dades/*
+data/*
 prompts/*
 src/.env
 
