@@ -13,7 +13,7 @@ scimatcher = SciMatcher(path_abstract=(EMBEDDINGS_ABSTRACTS, LOOK_UP_TABLE_ABSTR
                         path_graph=GRAPH_PATH,
                         scimatcher_db=SCIMATCHER_PATH)
 
-nom_convocatoria = 'cupons' #'DiH4CAT'
+nom_convocatoria = 'DiH4CAT' #'cupons', 'DiH4CAT'
 
 save_path = f'{nom_convocatoria}_answers.json'
 answers = get_answers(empresa, scimatcher, nom_convocatoria)

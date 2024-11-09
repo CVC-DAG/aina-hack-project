@@ -4,21 +4,21 @@
             "name": "1.1 Node responsable i contacte",
             "explain": "Responsable de l'Empresa",
             "system_prompt": "Qui \u00e9s el responsable de l'empresa?",
-            "search_query": "Responsable Empresa",
+            "search_query": "equip",
             "needs_science": false,
             "needs_business": true,
             "pdf_key": "text_2grki",
-            "answer": "No puc respondre."
+            "answer": "La Foneria \u00e9s l'empresa responsable de l'empresa."
         },
         {
             "name": "1.2 T\u00edtol del Repte / Projecte",
             "explain": "T\u00edtol del projecte",
-            "system_prompt": "Segons els articles cient\u00edfics provistos, digues, en catal\u00e0, el nom del projecte a solucionar. Sigues ambiciosa i digues directament el t\u00edtol.",
+            "system_prompt": "Segons els articles cient\u00edfics provistos, inventa, en catal\u00e0, el nom del projecte a solucionar. Sigues ambiciosa i digues directament el t\u00edtol.",
             "search_query": "Reptes Empresa",
             "needs_science": true,
             "needs_business": true,
             "pdf_key": "text_4mscj",
-            "answer": "no puc respondre"
+            "answer": "innovadors i atractius per l\u2019\u00e0mbit del patrimoni\u00a0cultural."
         },
         {
             "name": "1.3 AAPP/s i/o Departaments que promou/en el repte/projecte",
@@ -28,7 +28,7 @@
             "needs_science": false,
             "needs_business": true,
             "pdf_key": "text_5dvoh",
-            "answer": "El nom de l'entitat \u00e9s AllRead Machine Learning Technologies S.L."
+            "answer": "La Foneria."
         },
         {
             "name": "Objectius",
@@ -38,7 +38,7 @@
             "needs_science": true,
             "needs_business": true,
             "pdf_key": "textarea_6icgr",
-            "answer": "La sol\u00b7luci\u00f3 que volen portar els articles aportats \u00e9s l'ARS Road, un Software instal\u00b7lat \"On Premise\" que detecta i digitaliza els codis de contenidors i de matr\u00edcules al pas de els vehicles."
+            "answer": "La sol\u00b7luci\u00f3 que volem portar amb els articles aportats \u00e9s la seg\u00fcent:\n- Descripci\u00f3 i catalogaci\u00f3 de col\u00b7leccions de museus.\n- Extracci\u00f3 de dades de documents d'arxius.\n- Transcripci\u00f3 i indexaci\u00f3 d'entrevistes, enregistraments, fotografies o documents.\n- Aplicaci\u00f3 de tecnologies de la informaci\u00f3 per a la gesti\u00f3 del patrimoni cultural i la intel\u00b7lig\u00e8ncia artificial en tasques humanes repetitives.\n- Equip de professionals i empreses especialitzades en programaci\u00f3, disseny, IA... que permeten dur a terme projectes innovadors i atractius per l'\u00e0mbit del patrimoni cultural."
         },
         {
             "name": "2.2. Justificaci\u00f3 de la necessitat d\u2019executar el projecte/repte i temps d\u2019execuci\u00f3",
@@ -48,7 +48,7 @@
             "needs_science": false,
             "needs_business": true,
             "pdf_key": "textarea_7oijf",
-            "answer": "La recerca en aquest projecte \u00e9s necess\u00e0ria per tal de validar la soluci\u00f3 mitjan\u00e7ant diversos projectes pilot en Log\u00edstica i Serveis P\u00fablics, on un repte va guanyar rellev\u00e0ncia: malgrat viure a l\u2019era digital, el text encara es presenta en formes infinites; gravat, pintat, en etiquetes\u2026 tant en productes o vehicles com en contenidors i en les cadenes de subministrament. Per aix\u00f2, les empreses inverteixen grans sumes de diners intentant extreure aquesta valuosa informaci\u00f3 amb fins d\u2019identificaci\u00f3, monitoritzaci\u00f3 i seguiment, per\u00f2 en molts casos, utilitzant tecnologies obsoletes i processos manuals repetitius."
+            "answer": "La recerca en aquest projecte \u00e9s necess\u00e0ria per donar una experi\u00e8ncia d'usuari senzilla a projectes grans i complexos."
         },
         {
             "name": "2.3. Pressupost necessari / Pressupost necessari aproximat",
@@ -58,8 +58,8 @@
             "needs_science": false,
             "needs_business": true,
             "pdf_key": "textarea_8ilak",
-            "answer": "No puc respondre."
+            "answer": "El presupost del projecte no est\u00e0 especificat en el context proporcionat."
         }
     ],
-    "David Aldavert"
+    "Mickael Coustaty"
 ]
