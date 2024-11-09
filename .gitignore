@@ -1,9 +1,11 @@
 models/*
 dades/*
 data/*
+notebooks/*
 prompts/*
 src/.env
 response.json
+
 *.pyc
 
 .idea/
