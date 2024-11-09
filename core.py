@@ -89,7 +89,7 @@ def show_filled_form(answers, author):
             output += f'<textarea class="responseText" id="slot_{ii}" rows=10> Introdueixi més context </textarea>'
             complete = False
         else:
-            output += f'<p> {slot["answer"]} </p>'
+            output += f'<p class="fixedResponse" id="slot_{ii}"> {slot["answer"]} </p>'
     if not complete:
         print("NOT COMPLETE!")
         output += '<button type="button" onClick="javascript:submitRevision()" id="button_esmenes"> Envia Esmena amb context</button>'
@@ -128,7 +128,22 @@ def process_esmenes():
     with open("src/convocatories/convocatories_data.json", "r") as f_convocatories:
         convs = json.load(f_convocatories)
         slots = convs[amendment_data["form"]]["slots"]
-    return {k: call_salamandra(f"Expandeix el text que s'adjunta a continuació amb text que s'adeqüi a la descripció següent: {slots[get_slot_index(k)]['system_prompt']}", v, 0.0)["output"]["content"] for k, v in amendment_data["amendments"].items()}
+
+    answer = {}
+
+    for slot_name, text in amendment_data["amendments"].items():
+        slot_index = get_slot_index(slot_name)
+        prompt = slots[slot_index]['system_prompt']
+        generated = call_salamandra(f"Expandeix el text que s'adjunta a continuació amb text que s'adeqüi a la descripció següent: {prompt}", text, 0.0)["output"]["content"]
+        slots[slot_index]["answer"] = generated
+
+        answer[slot_name] = generated
+
+    for slot_name, text in amendment_data["correct"].items():
+        slot_index = get_slot_index(slot_name)
+        slots[slot_index]["answer"] = text
+
+    return answer
 
 def create_call_header():
     output = """<thead><tr>"""

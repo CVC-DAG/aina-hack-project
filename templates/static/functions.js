@@ -47,14 +47,20 @@ function submitWhichCall() {
 
 function submitRevision() {
     let amendments = document.querySelectorAll(".responseText");
+    let fixedText = document.querySelectorAll(".fixedText");
     console.log(amendments)
     let amendmentData = {}
+    let correctData = {}
     let fullRequest = {
         "amendments": amendmentData,
+        "correct": correctData,
         "form": document.querySelector('input[name="conv_select"]:checked').value
     }
     for (let ii = 0; ii < amendments.length; ii++) {
         amendmentData[amendments[ii].id] = amendments[ii].value
+    }
+    for (let ii = 0; ii < fixedText.length; ii++) {
+        correctData[fixedText[ii].id] = fixedText[ii].text
     }
     console.log(fullRequest)
 
