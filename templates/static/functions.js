@@ -92,11 +92,10 @@ function submitRevision() {
                         "Content-Type": "application/json",
                     },
                 };
-            fetch('/get_pdf', yetAnotherRequest)
-                .then(response => response.blob())
-                .then(data => {
-                    console.log("got the response")
-                })
+            let url = fetch('/get_pdf', yetAnotherRequest).then((r) => r.json());
+            document.getElementById('pdfViewer').src = url.url;
+            document.getElementById('pdfViewer').display = "block"
+
             document.getElementById("button_esmenes").display = "none"
         });
 

@@ -30,7 +30,7 @@ def load_empreses():
                     record_empreses['metadata'])
                 }
 empreses = load_empreses()
-print(empreses)
+# print(empreses)
 @app.route("/upload_business/")
 def upload_business_page():
     return render_template("upload_business.html")
@@ -65,7 +65,7 @@ def upload_business(business_url):
 
 @app.route("/fill_selected_call", methods=["POST"])
 def process_fill_call():
-    print("FILL CALL PROCESS")
+    # print("FILL CALL PROCESS")
 
     answers, author = get_answers(empreses[request.form["url"]], scimatcher,  request.form["selected_form"])
     output = show_filled_form(answers, author)
@@ -149,7 +149,7 @@ def process_esmenes():
 @app.route("/get_pdf", methods=["POST"])
 def get_pdf():
     data = request.get_json()
-    print(data)
+    # print(data)
     with open("src/convocatories/convocatories_data.json", "r") as f_convocatories:
         convs = json.load(f_convocatories)
         slots = convs[data["form"]]["slots"]
