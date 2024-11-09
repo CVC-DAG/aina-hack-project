@@ -81,7 +81,20 @@ function submitRevision() {
                 let new_element = document.createElement("p")
                 new_element.innerText = data[responseKeys[ii]]
                 document.getElementById(responseKeys[ii]).replaceWith(new_element)
+                correctData[responseKeys[ii]] = data[responseKeys[ii]]
             }
         });
+    let pdfData = {"text": correctData, "form": document.querySelector('input[name="conv_select"]:checked').value}
+    let yetAnotherRequest = {
+            method: 'POST',
+            redirect: 'follow',
+            body: JSON.stringify(pdfData),
+            headers: {
+                "Content-Type": "application/json",
+            },
+        };
+    fetch('/get_pdf', yetAnotherRequest)
+        .then(response => response.json())
+        .then(data => {})
     document.getElementById("button_esmenes").display = "none"
 }
