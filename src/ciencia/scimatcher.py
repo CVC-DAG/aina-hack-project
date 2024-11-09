@@ -60,7 +60,7 @@ class SciMatcher:
         retrieval_abstract = []
         retrieval_key_words = []
         
-        query_results = empresa.query_vdb("resultats esperats", num_results=150)
+        query_results = empresa.query_vdb("resultats esperats", num_results=800)
         
         embeddings_to_search = [call_embedding_model(text)["output"] for text in query_results]
         

@@ -37,3 +37,7 @@ function submitWhichCall() {
             document.getElementById('convocatories').innerHTML = data;
         });
 }
+
+function submitRevision() {
+
+}

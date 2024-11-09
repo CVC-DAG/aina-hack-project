@@ -14,11 +14,11 @@ def get_answers(empresa: Empresa, scimatcher: SciMatcher, nom_convocatoria: str,
     convocatoria = convocatoria[nom_convocatoria]['slots']
     for slot in convocatoria:
         context = ""
-        if slot['needs_science']:
-            context = relevant_papers
+
         if slot['needs_business']:
             context += " ".join(empresa.query_vdb(slot['search_query']))
-        
+        if slot['needs_science']:
+            context += "\nArticles científics que has de tenir en compte: " + relevant_papers
         if len(context) > max_context_length:
             context = context[:max_context_length]
         question = slot['system_prompt']

@@ -70,13 +70,19 @@ def process_fill_call():
 
 def show_filled_form(answers):
     output = ""
-    for slot in answers:
+    complete = True
+    for ii, slot in enumerate(answers):
         output += f"<h3> {slot['name']} </h3>"
         output += f"<h4> {slot['explain']} </h4>"
         if "No puc" in slot["answer"]:
-            output += f'<textarea class="responseText" rows=10> {slot["answer"]} </textarea>'
+            output += f'<textarea class="responseText" id=slot_{ii} rows=10> Introdueixi més context </textarea>'
+            complete = False
         else:
             output += f'<p> {slot["answer"]} </p>'
+    if not complete:
+        output += '<button type="button" onClick="javascript:submitRevision()"> Envia Esmena amb context</button>'
+    else:
+        ...
     return output
 
 
