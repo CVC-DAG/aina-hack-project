@@ -6,7 +6,8 @@
         "search_query": "Nom de l'empresa",
         "needs_science": false,
         "needs_business": true,
-        "answer": "El nom de l'empresa \u00e9s AllRead."
+        "pdf_key": "empresa",
+        "answer": "No puc respondre."
     },
     {
         "name": "1.1 Descripci\u00f3 de l'empresa i de l'activitat de l'empresa",
@@ -15,7 +16,8 @@
         "search_query": "activitat",
         "needs_science": false,
         "needs_business": true,
-        "answer": "La empresa AllRead Technologies, S.L. es una empresa que ofrece una soluci\u00f3n OCR \u00e1gil para la gesti\u00f3n de activos en el sector de la log\u00edstica y los servicios p\u00fablicos. La soluci\u00f3n de AllRead permite extraer informaci\u00f3n valiosa de im\u00e1genes o v\u00eddeos, proporcionando datos estructurados y limpios, lo que mejora la eficiencia operativa, reduce el tiempo de procesamiento y acelera la gesti\u00f3n de datos. La soluci\u00f3n de AllRead se puede utilizar para detectar y clasificar movimientos de contenedores, as\u00ed como para verificar autom\u00e1ticamente el d\u00edgito de control del contenedor. La empresa tambi\u00e9n ofrece una soluci\u00f3n de seguridad y protecci\u00f3n para el control de accesos y la monitorizaci\u00f3n de mercanc\u00edas peligrosas."
+        "pdf_key": "activat empresa",
+        "answer": "La informaci\u00f3 que es necessita per respondre a la pregunta no est\u00e0 disponible en el context donat."
     },
     {
         "name": "1.2 Web de l'Empresa",
@@ -24,7 +26,8 @@
         "search_query": "web",
         "needs_science": false,
         "needs_business": true,
-        "answer": "La web de l'empresa \u00e9s https://www.allread.ai/ca/"
+        "pdf_key": "web",
+        "answer": "La web de l'empresa \u00e9s: https://allread.ai."
     },
     {
         "name": "Xifres de negoci de l'empresa (tenint en compte totes les Unitats de Negoci)",
@@ -33,7 +36,8 @@
         "search_query": "xifres de negoci",
         "needs_science": false,
         "needs_business": true,
-        "answer": "No puc respondre a la pregunta amb la informaci\u00f3 que se'm dona."
+        "pdf_key": "FACTURACI\u00d3 \\xa02020",
+        "answer": "No puc respondre."
     },
     {
         "name": "1.4. Resultat del test d'Autorientaci\u00f3 digital del DIH4CAT",
@@ -48,6 +52,12 @@
             "Expert",
             "L\u00edder"
         ],
+        "pdf_key": [
+            "Test Explorant",
+            "Test Competent",
+            "Test Expert",
+            "Test L\u00edder"
+        ],
         "answer": "El resultat del test d'autoorientaci\u00f3 digital del DIH4CAT \u00e9s: Competent."
     },
     {
@@ -57,7 +67,8 @@
         "search_query": "t\u00edtol de l'activitat",
         "needs_science": true,
         "needs_business": true,
-        "answer": "Implementaci\u00f3."
+        "pdf_key": "21 Titol SErvei",
+        "answer": "La pregunta no es pot respondre amb la informaci\u00f3 proporcionada."
     },
     {
         "name": "2.2. Indicar quines tecnologies digitals avan\u00e7ades es contemplen en el servei d'assessorament pel testatge, experimentaci\u00f3 i validaci\u00f3 de l'\u00fas i aplicaci\u00f3 de les tecnologies digitals avan\u00e7ades (es pot marcar m\u00e9s d'una opci\u00f3): ",
@@ -74,7 +85,16 @@
             "Ciberseguretat",
             "Intel\u00b7lig\u00e8ncia artificial ( Inclou Big Data)"
         ],
-        "answer": "Les tecnologies que es faran servir per dur a terme la tasca s\u00f3n: Fabricaci\u00f3 additiva/i3D Printing, Rob\u00f2tica i manufactura avan\u00e7ada ( inclou realitat virtual i realitat augmentada o mixta,Cloud/Edge,Simulaci\u00f3 i bess\u00f3 digital), Supercomputaci\u00f3 i Qu\u00e0ntica, Ciberseguretat, Intel\u00b7lig\u00e8ncia artificial ( Inclou Big Data)"
+        "pdf_key": [
+            "Fabricaci\u00f3 additiva",
+            "Tec Ciberseguretat",
+            "Tec IA I BIGDATA",
+            "Tec Supercomputaci\u00f3 i Q",
+            "Robotica",
+            "Tec connectivitat intel\u00b7ligent",
+            "Tec Fot\u00f2nica"
+        ],
+        "answer": "La tecnologia que es far\u00e0 servir per dur a terme la tasca \u00e9s la fabricaci\u00f3 additiva/3D Printing, la rob\u00f2tica i la manufactura avan\u00e7ada (inclou realitat virtual i realitat augmentada o mixta, Cloud/Edge, Simulaci\u00f3 i B\u00e8sol Digital), la supercomputaci\u00f3 i la qu\u00e0ntica, la ciberseguretat, l'intel\u00b7lig\u00e8ncia artificial (inclou Big Data) i el context."
     },
     {
         "name": "2.3 Indicar el tipus de servei vinculat a l'assessorament (es pot marcar m\u00e9s d'una opci\u00f3):",
@@ -89,7 +109,13 @@
             "Serveis de prova de concepte i validaci\u00f3 de resultats.",
             "Desenvolupament de prototips i pilots (testatge del producte o servei)."
         ],
-        "answer": "El tipus de servei sol\u00b7licitat \u00e9s el desenvolupament de prototips i pilots (testatge del producte o servei)."
+        "pdf_key": [
+            "23 Tipus estudis via",
+            "23 tipus prova concepte",
+            "23 tipus prototip i pilot",
+            "32 tipus analisis nous model negoci"
+        ],
+        "answer": "El tipus de servei que es demana \u00e9s el desenvolupament de prototips i pilots (testatge del producte o servei)."
     },
     {
         "name": "2.4.1. Descriure en qu\u00e8 consistir\u00e0 el servei a realitzar i l'abast del mateix. (es recomana un m\u00ednim de 8 l\u00ednies)",
@@ -98,7 +124,8 @@
         "search_query": "servei",
         "needs_science": true,
         "needs_business": true,
-        "answer": "El servei proporcionat per AllRead consisteix en la coordinaci\u00f3 del projecte fins als lliurables, la configuraci\u00f3 del software, la parametritzaci\u00f3 de les c\u00e0meres, proves en diferents condicions, assist\u00e8ncia en la instal\u00b7laci\u00f3 i la integraci\u00f3, 14 dies d'operacions assistides despr\u00e9s de la implementaci\u00f3, acc\u00e9s a la plataforma d'atenci\u00f3 al client i servei de suport i documentaci\u00f3."
+        "pdf_key": "241 servei",
+        "answer": "El servei a realitzar i l'abast del mateix consistir\u00e0 en la instal\u00b7laci\u00f3 i configuraci\u00f3 del software ARS, la parametritzaci\u00f3 de les c\u00e0meres, les proves en diferents condicions, l'assist\u00e8ncia en la instal\u00b7laci\u00f3 i la integraci\u00f3, 14 dies d'operacions assistides despr\u00e9s de la implementaci\u00f3, acc\u00e9s a la plataforma d'atenci\u00f3 al client, servei de suport i documentaci\u00f3, verificacions peri\u00f2diques de qualitat i actualitzacions peri\u00f2diques."
     },
     {
         "name": "2.4.2. Descriure el repte principal i reptes associats que pret\u00e9n resoldre l'empresa amb el testatge, experimentaci\u00f3 i validaci\u00f3 de l'\u00fas i aplicaci\u00f3 de les tecnologies digitals avan\u00e7ades",
@@ -107,7 +134,8 @@
         "search_query": "technologies",
         "needs_science": true,
         "needs_business": true,
-        "answer": "tecnologia de reconeixement d\u2019imatges i v\u00eddeos."
+        "pdf_key": "242 reptes",
+        "answer": "s es comprimeixen autom\u00e0ticament per reduir l\u2019ocupaci\u00f3 al disc dur. S\u2019activa una pol\u00edtica de neteja de les dades. Nivells de precisi\u00f3 de fins al 99% de les dades consolidades."
     },
     {
         "name": "2.4.3. Descriure quin tipus de resultats s\u2019esperen del servei ( Els resultats obtinguts han de ser algun dels que s\u2019indiquen en l'apartat 6 del annex 2 )",
@@ -116,7 +144,8 @@
         "search_query": "resultats esperats",
         "needs_science": true,
         "needs_business": true,
-        "answer": "Els resultats esperats del servei s\u00f3n la detecci\u00f3, lectura i digitalitzaci\u00f3 de la informaci\u00f3 dels contenidors, aix\u00ed com el seu seguiment i monitoratge."
+        "pdf_key": "243 tipus resultats esperats",
+        "answer": "Els resultats esperats del servei s\u00f3n la millora de l'efici\u00e8ncia operativa, la reducci\u00f3 de tasques manuals, lat\u00e8ncies i errors, la sostenibilitat, la seguretat i protecci\u00f3, i el compliment."
     },
     {
         "name": "2.4.4. Llistar i descriure el/s lliurable/s previstos",
@@ -125,6 +154,7 @@
         "search_query": "lliurables previstos",
         "needs_science": true,
         "needs_business": true,
+        "pdf_key": "244 lliurables",
         "answer": "No puc respondre."
     },
     {
@@ -133,6 +163,7 @@
         "system_prompt": "Quin \u00e9s el NIF del prove\u00efdor?",
         "needs_science": true,
         "needs_business": false,
+        "pdf_key": "NIF proveidor",
         "answer": "No puc respondre."
     },
     {
@@ -149,6 +180,10 @@
             "Membre d'un European Digital Innovation Hub que hagi estat seleccionat per la Comissi\u00f3 Europea per rebre finan\u00e7ament del programa Europa Digital",
             "Entitat formalment vinculada a un European Digital Innovation Hub que hagi estat seleccionat per la Comissi\u00f3 Europea per rebre finan\u00e7ament del programa Europa Digital."
         ],
+        "pdf_key": [
+            "Membre dun European Digital Innovation Hub que hagi estat seleccionat per la Comissi\u00f3",
+            "Entitat formalment vinculada a un European Digital Innovation Hub que hagi estat seleccionat"
+        ],
         "answer": "Membre d'un European Digital Innovation Hub que hagi estat seleccionat per la Comissi\u00f3 Europea per rebre finan\u00e7ament del programa Europa Digital."
     },
     {
@@ -157,6 +192,7 @@
         "system_prompt": "Quin \u00e9s el nom del EDIH?",
         "needs_science": true,
         "needs_business": false,
+        "pdf_key": "Nom Edih",
         "answer": "No puc respondre."
     },
     {
@@ -165,6 +201,7 @@
         "system_prompt": "Quin \u00e9s el nom de l'entitat representant de l'EDIH?",
         "needs_science": true,
         "needs_business": false,
+        "pdf_key": "represent Edih",
         "answer": "No puc respondre."
     },
     {
@@ -173,6 +210,7 @@
         "system_prompt": "Quin \u00e9s el NIF de l'entitat representant de l'EDIH?",
         "needs_science": true,
         "needs_business": false,
+        "pdf_keys": "Text13",
         "answer": "No puc respondre."
     },
     {
@@ -181,6 +219,7 @@
         "system_prompt": "Quines s\u00f3n les compet\u00e8ncies i coneixements experts del prove\u00efdor?",
         "needs_science": true,
         "needs_business": false,
+        "pdf_key": "32 projectes previs",
         "answer": "No puc respondre."
     },
     {
@@ -189,6 +228,7 @@
         "system_prompt": "Quina \u00e9s l'experi\u00e8ncia pr\u00e8via del centre d\"investigaci\u00f3?",
         "needs_science": true,
         "needs_business": false,
+        "pdf_key": "33 serveis previs",
         "answer": "No puc respondre."
     },
     {
@@ -197,6 +237,7 @@
         "system_prompt": "Quin \u00e9s el nom del servei ofert a trav\u00e9s del EDIH?",
         "needs_science": true,
         "needs_business": false,
+        "pdf_key": "34 nom servei",
         "answer": "No puc respondre."
     },
     {
@@ -205,6 +246,7 @@
         "system_prompt": "Quines s\u00f3n les infraestructures i equipaments del centre d\"investigaci\u00f3?",
         "needs_science": true,
         "needs_business": false,
+        "pdf_key": "35 infraestructures",
         "answer": "No puc respondre."
     },
     {
@@ -218,6 +260,10 @@
             "S\u00ed",
             "No"
         ],
+        "pdf_key": [
+            "41 <15k",
+            "41 >15k"
+        ],
         "answer": "No puc respondre."
     },
     {
@@ -227,6 +273,7 @@
         "search_query": "presupost",
         "needs_science": false,
         "needs_business": true,
-        "answer": "No puc respondre."
+        "pdf_key": "Total pressupost",
+        "answer": "No puc respondre a aquesta pregunta."
     }
 ]
