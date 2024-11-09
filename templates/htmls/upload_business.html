@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hello Page</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<!--    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">-->
     <script src="{{ url_for('static', filename='functions.js') }}"></script>
 </head>
 <body>
@@ -14,7 +14,7 @@
     </section>
     <section id="form-group">
         Farem servir la URL de la teva empresa per a trobar el vostre camp d'acció.
-        <form id="url-form">
+        <form id="url-form" action="javascript:submitURLForm()">
           <label for="url">Lloc web de la teva empresa</label>
           <input type="text" id="url_field" name="url" required>
         </form>

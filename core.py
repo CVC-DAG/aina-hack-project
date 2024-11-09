@@ -5,6 +5,8 @@ from src.common import *
 from flask import Flask, render_template, request
 import pandas as pd
 
+import json
+
 import uuid
 
 app = Flask(__name__, template_folder=TEMPLATES, static_folder=STATIC)
@@ -26,7 +28,7 @@ def process_upload_business():
     print(request.form["url"])
     upload_business(request.form["url"])
 
-    return render_template("list_calls.html")
+    return show_project_calls()
 
 def upload_business(business_url):
     global record_empreses
@@ -44,6 +46,47 @@ def upload_business(business_url):
     empreses.append(empresa_nova)
 
     return empreses[-1]
+
+REQUIRED_FIELDS = [
+    "obertura",
+    "tancament",
+    "convoca",
+    "tipus",
+    "pressupost",
+]
+
+def show_project_calls():
+    with open("src/convocatories/convocatories_data.json", "r") as f_convocatories:
+        data = json.load(f_convocatories)
+    output = "<table>"
+    output += create_call_header()
+
+    output += "<tbody>"
+    for ii, (name, call) in enumerate(data.items()):
+        metadata = call["metadata"]
+        output += create_call_row(name, metadata, ii==0)
+    output += "</tbody></table>"
+    return output
+
+def create_call_header():
+    output = """<thead><tr>"""
+    output += f"<th scope='col'>Selecció</th>"
+    output += f"<th scope='col'>Nom</th>"
+    for field in REQUIRED_FIELDS:
+        capitalised = field[0].upper() + field[1:]
+        output += f"<th scope='col'>{capitalised}</th>"
+    output += """</tr></thead>"""
+    return output
+
+def create_call_row(nom, metadata, checked):
+    output = """<tr>"""
+    output += f'<td><input type="radio" id="conv_select_{nom}" name="conv_select" value="{nom}" {"checked" if checked else ""}/></td>'
+    output += f"<td>{nom}</td>"
+    for field in REQUIRED_FIELDS:
+        output += f"<td>{metadata[field]}</td>"
+    output += """</tr></thead>"""
+    return output
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8001, debug=True)
