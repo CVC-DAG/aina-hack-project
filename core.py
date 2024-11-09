@@ -1,3 +1,7 @@
+import json
+import uuid
+
+from src.llm.get_answers import get_answers
 from src.ciencia.scimatcher import SciMatcher
 from src.empreses.empreses import Empresa
 from src.common import *
@@ -5,18 +9,20 @@ from src.common import *
 from flask import Flask, render_template, request
 import pandas as pd
 
-import json
-
-import uuid
-
 app = Flask(__name__, template_folder=TEMPLATES, static_folder=STATIC)
 scimatcher = SciMatcher(SCIMATCHER_PATH)
 record_empreses = pd.read_csv(EMPRESES_RECORD, names=['url', 'vdb', 'metadata'])
 print(record_empreses)
 
-empreses = [Empresa(url, None, None, vdb, meta) for (url, vdb, meta) in zip(record_empreses['url'],
-                                                                            record_empreses['vdb'],
-                                                                            record_empreses['metadata'])]
+
+def load_empreses():
+    return {url: Empresa(url, None, None, vdb, meta)
+                for (url, vdb, meta) in zip(
+                    record_empreses['url'],
+                    record_empreses['vdb'],
+                    record_empreses['metadata'])
+                }
+empreses = load_empreses()
 print(empreses)
 @app.route("/upload_business/")
 def upload_business_page():
@@ -32,7 +38,10 @@ def process_upload_business():
 
 def upload_business(business_url):
     global record_empreses
+    global empreses
+
     record_empreses = pd.read_csv(EMPRESES_RECORD, names=['url', 'vdb', 'metadata'])
+    empreses = load_empreses()
 
     if (record_empreses['url'] == business_url).any():
         return None
@@ -43,14 +52,20 @@ def upload_business(business_url):
     with open(EMPRESES_RECORD, 'a+') as handler:
         handler.write(','.join([business_url, vdb_path, metapath]) + "\n")
 
-    empreses.append(empresa_nova)
+    empreses[business_url] = empresa_nova
 
     return empreses[-1]
 
 @app.route("/fill_selected_call", methods=["POST"])
 def process_fill_call():
     print("FILL CALL PROCESS")
-    return "<p>THIS IS THE OUTPUT DATA</p>"
+
+    answers, author = get_answers(empreses[request.form["url"]], scimatcher,  request.form["selected_form"])
+    output = show_filled_form(answers)
+    return output
+
+def show_filled_form(answers):
+    ...
 
 REQUIRED_FIELDS = [
     "obertura",
