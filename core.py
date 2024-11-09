@@ -8,6 +8,7 @@ from src.common import *
 
 from flask import Flask, render_template, request
 import pandas as pd
+import urllib.parse
 
 app = Flask(__name__, template_folder=TEMPLATES, static_folder=STATIC)
 scimatcher = SciMatcher(path_abstract=(EMBEDDINGS_ABSTRACTS, LOOK_UP_TABLE_ABSTRACTS),
@@ -65,11 +66,20 @@ def process_fill_call():
     print("FILL CALL PROCESS")
 
     answers, author = get_answers(empreses[request.form["url"]], scimatcher,  request.form["selected_form"])
-    output = show_filled_form(answers)
+    output = show_filled_form(answers, author)
     return output
 
-def show_filled_form(answers):
-    output = ""
+def show_filled_form(answers, author):
+
+    encoded_author = urllib.parse.quote(author)
+    output =   f"""<section  id="graph_cerca">
+        Cerca al Catàleg Científic:
+      <iframe src="{GRAPH_NX_WEB}&n={encoded_author}"
+              width="100%"
+              height="400"
+              style="border: none;">
+      </iframe>
+    </section>"""
     complete = True
     for ii, slot in enumerate(answers):
         output += f"<h3> {slot['name']} </h3>"
@@ -107,6 +117,10 @@ def show_project_calls():
     output += "</tbody></table>"
     output += '<button type="button" onClick="javascript:submitWhichCall()">Emplena sol·licitud</button>'
     return output
+
+@app.route('/esmenar/')
+def process_esmenes():
+    pass
 
 def create_call_header():
     output = """<thead><tr>"""

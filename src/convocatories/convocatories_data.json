@@ -229,13 +229,13 @@
         "bases_reguladores": "",
         "metadata":
         {
-            "obertura": "",
-            "tancament": "",
-            "convoca": "",
-            "tipus": "",
-            "modalitat": "",
-            "pressupost": "",
-            "mes_informacio": ""
+            "obertura": "01/01/2025",
+            "tancament": "31/12/2025",
+            "convoca": "CDIHub",
+            "tipus": "Subvenció",
+            "modalitat": "Anual",
+            "pressupost": "25K€",
+            "mes_informacio": "google.com"
         },
         "slots": [
             {
