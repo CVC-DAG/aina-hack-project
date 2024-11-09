@@ -13,7 +13,7 @@ function submitURLForm() {
         redirect: 'follow',
         body: formData,
     };
-    convElement.style.display = 'contents'
+    convElement.style.display = 'block'
     convElement.innerHTML = '<div class="loader">Carregant...</div>'
     fetch('/submit_upload_business', requestOptions)
         .then(response => response.text())
@@ -35,8 +35,8 @@ function submitWhichCall() {
         redirect: 'follow',
         body: formData,
     };
-    document.getElementById('submit_button_ok').style='display: none;'
-    convElement.style.display = 'contents'
+    document.getElementById('submit_button_ok').display='none'
+    convElement.style.display = 'block'
     convElement.innerHTML = '<div class="loader">Carregant...</div>'
     fetch('/fill_selected_call', requestOptions)
         .then(response => response.text())
@@ -46,5 +46,42 @@ function submitWhichCall() {
 }
 
 function submitRevision() {
+    let amendments = document.querySelectorAll(".responseText");
+    let fixedText = document.querySelectorAll(".fixedText");
+    console.log(amendments)
+    let amendmentData = {}
+    let correctData = {}
+    let fullRequest = {
+        "amendments": amendmentData,
+        "correct": correctData,
+        "form": document.querySelector('input[name="conv_select"]:checked').value
+    }
+    for (let ii = 0; ii < amendments.length; ii++) {
+        amendmentData[amendments[ii].id] = amendments[ii].value
+    }
+    for (let ii = 0; ii < fixedText.length; ii++) {
+        correctData[fixedText[ii].id] = fixedText[ii].text
+    }
+    console.log(fullRequest)
 
+    let requestOptions = {
+        method: 'POST',
+        redirect: 'follow',
+        body: JSON.stringify(fullRequest),
+        headers: {
+            "Content-Type": "application/json",
+          },
+    };
+    fetch('/esmenar/', requestOptions)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data)
+            let responseKeys = Object.keys(data)
+            for (let ii = 0; ii < responseKeys.length; ii++) {
+                let new_element = document.createElement("p")
+                new_element.innerText = data[responseKeys[ii]]
+                document.getElementById(responseKeys[ii]).replaceWith(new_element)
+            }
+        });
+    document.getElementById("button_esmenes").display = "none"
 }

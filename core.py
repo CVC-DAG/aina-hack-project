@@ -9,6 +9,7 @@ from src.common import *
 from flask import Flask, render_template, request
 import pandas as pd
 import urllib.parse
+from src.local_calls import call_salamandra
 
 app = Flask(__name__, template_folder=TEMPLATES, static_folder=STATIC)
 scimatcher = SciMatcher(path_abstract=(EMBEDDINGS_ABSTRACTS, LOOK_UP_TABLE_ABSTRACTS),
@@ -84,13 +85,14 @@ def show_filled_form(answers, author):
     for ii, slot in enumerate(answers):
         output += f"<h3> {slot['name']} </h3>"
         output += f"<h4> {slot['explain']} </h4>"
-        if "No puc" in slot["answer"]:
-            output += f'<textarea class="responseText" id=slot_{ii} rows=10> Introdueixi més context </textarea>'
+        if "No puc".lower() in slot["answer"].lower():
+            output += f'<textarea class="responseText" id="slot_{ii}" rows=10> Introdueixi més context </textarea>'
             complete = False
         else:
-            output += f'<p> {slot["answer"]} </p>'
+            output += f'<p class="fixedResponse" id="slot_{ii}"> {slot["answer"]} </p>'
     if not complete:
-        output += '<button type="button" onClick="javascript:submitRevision()"> Envia Esmena amb context</button>'
+        print("NOT COMPLETE!")
+        output += '<button type="button" onClick="javascript:submitRevision()" id="button_esmenes"> Envia Esmena amb context</button>'
     else:
         ...
     return output
@@ -118,9 +120,30 @@ def show_project_calls():
     output += '<button type="button" onClick="javascript:submitWhichCall()" id="submit_button_ok">Emplena sol·licitud</button>'
     return output
 
-@app.route('/esmenar/')
+def get_slot_index(slot_name):
+    return int(slot_name.split("_")[-1])
+@app.route('/esmenar/', methods=["POST"])
 def process_esmenes():
-    pass
+    amendment_data = request.get_json()
+    with open("src/convocatories/convocatories_data.json", "r") as f_convocatories:
+        convs = json.load(f_convocatories)
+        slots = convs[amendment_data["form"]]["slots"]
+
+    answer = {}
+
+    for slot_name, text in amendment_data["amendments"].items():
+        slot_index = get_slot_index(slot_name)
+        prompt = slots[slot_index]['system_prompt']
+        generated = call_salamandra(f"Expandeix el text que s'adjunta a continuació amb text que s'adeqüi a la descripció següent: {prompt}", text, 0.0)["output"]["content"]
+        slots[slot_index]["answer"] = generated
+
+        answer[slot_name] = generated
+
+    for slot_name, text in amendment_data["correct"].items():
+        slot_index = get_slot_index(slot_name)
+        slots[slot_index]["answer"] = text
+
+    return answer
 
 def create_call_header():
     output = """<thead><tr>"""
