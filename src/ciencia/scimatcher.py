@@ -92,9 +92,6 @@ class SciMatcher:
         
         best_match = final_retrieve[0][0]
         
-        print(best_match)
-        pdb.set_trace()
-        exit()
         
         title_best_match = self.get_target_nodes_by_edge_type(str(best_match), 'title')[0]
         value_title = self.graph.nodes[title_best_match]["content"]
@@ -109,16 +106,16 @@ class SciMatcher:
         if len(self.get_target_nodes_by_edge_type(str(best_match), 'contain')) != 0:
             best_context_match += f"And the abstract is:\n {value_abstract}"
         
-        print(best_context_match)
-        exit()
-        #self.db[empresa.url] = best_context_match
-        #json.dump(self.db, open(self.path, 'w'))
+        
+        self.db[empresa.url] = best_context_match
+        json.dump(self.db, open(self.path, 'w'))
+        
         return best_context_match, self.get_target_nodes_by_edge_type(str(best_match), 'author')[0]
     
     def merge_index_lists(self, *lists):
         # Step 1: Flatten all distances and compute softmax
         all_distances = [dist for lst in lists for _, dist in lst]
-        softmax_distances = np.exp(-np.array(all_distances)) / np.sum(np.exp(-np.array(all_distances)))
+        softmax_distances = np.exp(-np.array(all_distances)) / np.sum(np.exp(-np.array(all_distances))) # type: ignore
         
         # Step 2: Reassign normalized distances back to the (index, distance) pairs
         flattened_list = [pair for lst in lists for pair in lst]
