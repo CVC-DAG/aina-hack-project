@@ -11,7 +11,7 @@ def fill_pdf(path_to_pdf, answers):
         if type(answer['pdf_key']) == str:
             fields[answer['pdf_key']] = answer['answer']
 
-    new_pdf_path = os.path.join(os.path.dirname(path_to_pdf), f'filled_{random.randint(0, 100000)}.pdf')
+    new_pdf_path = os.path.join(os.path.join("templates", "static"), f'filled_{random.randint(0, 100000)}.pdf')
     fillpdfs.write_fillable_pdf(path_to_pdf, new_pdf_path, fields)
 
     return new_pdf_path

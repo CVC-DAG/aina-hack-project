@@ -7,7 +7,7 @@ from src.empreses.empreses import Empresa
 from src.fill_pdf import fill_pdf
 from src.common import *
 
-from flask import Flask, render_template, request, send_file
+from flask import Flask, render_template, request, send_file, jsonify
 import pandas as pd
 import urllib.parse
 from src.local_calls import call_salamandra
@@ -146,10 +146,18 @@ def process_esmenes():
 
     return answer
 
+@app.route('/templates/static/<filename>.pdf')
+def serve_pdf(filename):
+    print(f'Trying to get PDF: {filename}')
+    try:
+        return send_file(f'./templates/static/{filename}.pdf', as_attachment=False)
+    except FileNotFoundError:
+        return "File not found", 404
+
+# Endpoint for generating and getting a PDF path
 @app.route("/get_pdf", methods=["POST"])
-def get_pdf():
+def generate_and_get_pdf():
     data = request.get_json()
-    # print(data)
     with open("src/convocatories/convocatories_data.json", "r") as f_convocatories:
         convs = json.load(f_convocatories)
         slots = convs[data["form"]]["slots"]
@@ -158,8 +166,11 @@ def get_pdf():
         slot_index = get_slot_index(slot_name)
         slots[slot_index]["answer"] = text
 
+    # Assume fill_pdf generates the PDF and returns the file path
     pdf_path = fill_pdf(convs[data["form"]]["metadata"]["pdf_path"], slots)
-    return send_file(pdf_path)
+
+    # Return the URL as JSON for the frontend to use
+    return jsonify({"url": f"/{pdf_path}"})
 
 def create_call_header():
     output = """<thead><tr>"""

@@ -92,11 +92,21 @@ function submitRevision() {
                         "Content-Type": "application/json",
                     },
                 };
-            let url = fetch('/get_pdf', yetAnotherRequest).then((r) => r.json());
-            document.getElementById('pdfViewer').src = url.url;
-            document.getElementById('pdfViewer').display = "block"
+fetch('/get_pdf', yetAnotherRequest)
+    .then(response => response.json())
+    .then(data => {
+        // Assuming the response has the PDF URL in `data.url`
+        let url = data.url;
 
-            document.getElementById("button_esmenes").display = "none"
+        // Set the PDF viewer to visible and load the URL
+        document.getElementById('pdfViewer').style.display = "block";
+        document.getElementById('pdfViewer').src = url;
+
+        // Hide the button
+        document.getElementById("button_esmenes").style.display = "none";
+    })
+    .catch(error => console.error('Error fetching PDF:', error));
+
         });
 
 
