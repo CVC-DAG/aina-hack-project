@@ -9,6 +9,8 @@ import pickle
 from typing import *
 import numpy as np
 import networkx as nx
+import numpy as np
+from collections import defaultdict
 
 import pdb
 
@@ -62,6 +64,9 @@ class SciMatcher:
         
         query_results = empresa.query_vdb("resultats esperats", num_results=800)
         
+        if len(query_results) == 0:
+            query_results = ["res"]
+        
         embeddings_to_search = [call_embedding_model(text)["output"] for text in query_results]
         
         for qemb in embeddings_to_search:
@@ -81,10 +86,15 @@ class SciMatcher:
         retrieval_key_words = sorted(retrieval_key_words, key=lambda x: x[1])
         retrieval_title = sorted(retrieval_title, key=lambda x: x[1])
         
-        final_retrieve = retrieval_abstract + retrieval_title + retrieval_key_words
+        
+        final_retrieve = self.merge_index_lists(retrieval_abstract, retrieval_key_words, retrieval_title)#retrieval_abstract + retrieval_title + retrieval_key_words
         final_retrieve = sorted(final_retrieve, key=lambda x: x[1])
         
         best_match = final_retrieve[0][0]
+        
+        print(best_match)
+        pdb.set_trace()
+        exit()
         
         title_best_match = self.get_target_nodes_by_edge_type(str(best_match), 'title')[0]
         value_title = self.graph.nodes[title_best_match]["content"]
@@ -99,11 +109,32 @@ class SciMatcher:
         if len(self.get_target_nodes_by_edge_type(str(best_match), 'contain')) != 0:
             best_context_match += f"And the abstract is:\n {value_abstract}"
         
-        
+        print(best_context_match)
+        exit()
         #self.db[empresa.url] = best_context_match
         #json.dump(self.db, open(self.path, 'w'))
         return best_context_match, self.get_target_nodes_by_edge_type(str(best_match), 'author')[0]
     
+    def merge_index_lists(self, *lists):
+        # Step 1: Flatten all distances and compute softmax
+        all_distances = [dist for lst in lists for _, dist in lst]
+        softmax_distances = np.exp(-np.array(all_distances)) / np.sum(np.exp(-np.array(all_distances)))
+        
+        # Step 2: Reassign normalized distances back to the (index, distance) pairs
+        flattened_list = [pair for lst in lists for pair in lst]
+        normalized_list = [(index, softmax_distances[i]) for i, (index, _) in enumerate(flattened_list)]
+        
+        # Step 3: Aggregate distances by index, multiplying for duplicates
+        combined_distances = defaultdict(float)
+        for idx, dist in normalized_list:
+            if idx in combined_distances:
+                combined_distances[idx] *= dist  # Multiply for duplicates
+            else:
+                combined_distances[idx] = dist  # Set for the first occurrence
+        
+        # Step 4: Sort combined results by distance in ascending order and return
+        sorted_combined = sorted(combined_distances.items(), key=lambda x: x[1])
+        return sorted_combined
     
     def get_target_nodes_by_edge_type(self, node, edge_type):
         """
