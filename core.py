@@ -149,13 +149,14 @@ def process_esmenes():
 @app.route("/get_pdf", methods=["POST"])
 def get_pdf():
     data = request.get_json()
+    print(data)
     with open("src/convocatories/convocatories_data.json", "r") as f_convocatories:
         convs = json.load(f_convocatories)
         slots = convs[data["form"]]["slots"]
 
     for slot_name, text in data["text"].items():
         slot_index = get_slot_index(slot_name)
-        slots[slot_index] = text
+        slots[slot_index]["answer"] = text
 
     pdf_path = fill_pdf(convs[data["form"]]["metadata"]["pdf_path"], slots)
     return send_file(pdf_path)
