@@ -65,7 +65,13 @@ def process_fill_call():
     return output
 
 def show_filled_form(answers):
-    ...
+    output = ""
+    for slot in answers:
+        output += f"<h3> {slot['name']} </h3>"
+        output += f"<h4> {slot['explain']} </h4>"
+        output += f'<textarea class="responseText" rows=10>{slot["answer"]}<textarea/>'
+    return output
+
 
 REQUIRED_FIELDS = [
     "obertura",
