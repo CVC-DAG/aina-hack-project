@@ -8,7 +8,7 @@
             "needs_science": false,
             "needs_business": true,
             "pdf_key": "empresa",
-            "answer": "Nom: La Foneria. CULT-TIC SLU."
+            "answer": "Nom: None"
         },
         {
             "name": "1.1 Descripci\u00f3 de l'empresa i de l'activitat de l'empresa",
@@ -18,7 +18,7 @@
             "needs_science": false,
             "needs_business": true,
             "pdf_key": "activat empresa",
-            "answer": "La Foneria \u00e9s una empresa que ofereix serveis de disseny de projectes utilitzant tecnologies al seu abast per fer el treball eficient, i si \u00e9s necessari, els adapta a les necessitats dels clients. Tamb\u00e9 ofereixen serveis d'intel\u00b7lig\u00e8ncia artificial per accelerar processos repetitius del dia a dia. L'equip de La Foneria est\u00e0 format per professionals en humanitats digitals, hist\u00f2ria, narrativa i comunicaci\u00f3, juntament amb un grup de programadors i dissenyadors especialitzats. La seva finalitat \u00e9s aplicar tecnologies de la informaci\u00f3 per a la gesti\u00f3 del patrimoni cultural i la seva recuperaci\u00f3 en l\u00ednia, i la intel\u00b7lig\u00e8ncia artificial en tasques humanes repetitives com la descripci\u00f3, extracci\u00f3 de dades, transcripci\u00f3 o indexaci\u00f3 per multiplicar el potencial del treball diari."
+            "answer": "El sector i activitat principal de l'empresa \u00e9s la Intel\u00b7lig\u00e8ncia Artificial i la identificaci\u00f3 d'imatges."
         },
         {
             "name": "1.2 Web de l'Empresa",
@@ -28,7 +28,7 @@
             "needs_science": false,
             "needs_business": true,
             "pdf_key": "web",
-            "answer": "La p\u00e0gina web de l'empresa \u00e9s https://www.lafoneria.com/ca/"
+            "answer": "No puc respondre."
         },
         {
             "name": "Xifres de negoci de l'empresa (tenint en compte totes les Unitats de Negoci)",
@@ -59,7 +59,7 @@
                 "Test Expert",
                 "Test L\u00edder"
             ],
-            "answer": "El resultat del test d'autoorientaci\u00f3 digital del DIH4CAT \u00e9s: Competent."
+            "answer": "No puc respondre."
         },
         {
             "name": "2.1. T\u00edtol descriptiu del servei",
@@ -95,7 +95,7 @@
                 "Tec connectivitat intel\u00b7ligent",
                 "Tec Fot\u00f2nica"
             ],
-            "answer": "Les tecnologies que es faran servir per dur a terme la tasca s\u00f3n: Fabricaci\u00f3 additiva/i3D Printing, Rob\u00f2tica i manufactura avan\u00e7ada ( inclou realitat virtual i realitat augmentada o mixta,Cloud/Edge,Simulaci\u00f3 i bess\u00f3 digital), Supercomputaci\u00f3 i Qu\u00e0ntica, Ciberseguretat, Intel\u00b7lig\u00e8ncia artificial ( Inclou Big Data)"
+            "answer": "La tecnologia que s'utilitzar\u00e0 per dur a terme la tasca \u00e9s la Intel\u00b7lig\u00e8ncia artificial ( Inclou Big Data) i la Rob\u00f2tica i manufactura avan\u00e7ada ( inclou realitat virtual i realitat augmentada o mixta, Cloud/Edge, Simulaci\u00f3 i bess\u00f3 digital)."
         },
         {
             "name": "2.3 Indicar el tipus de servei vinculat a l'assessorament (es pot marcar m\u00e9s d'una opci\u00f3):",
@@ -116,7 +116,7 @@
                 "23 tipus prototip i pilot",
                 "32 tipus analisis nous model negoci"
             ],
-            "answer": "Catalunya i d'alguns arxius municipals per establir els protocols d'actuaci\u00f3 per a projectes de recerca i arxius a fi de facilitar el tractament i la difusi\u00f3 d'entrevistes en l\u00ednia."
+            "answer": "Detecci\u00f3 i digitalitzaci\u00f3 de codis de contenidors (BIC) i matr\u00edcules (vehicles i remolcs) des de diversos punts del carril."
         },
         {
             "name": "2.4.1. Descriure en qu\u00e8 consistir\u00e0 el servei a realitzar i l'abast del mateix. (es recomana un m\u00ednim de 8 l\u00ednies)",
@@ -126,7 +126,7 @@
             "needs_science": true,
             "needs_business": true,
             "pdf_key": "241 servei",
-            "answer": "No puc respondre."
+            "answer": "digital, els ports encara depenen de processos manuals per a la identificaci\u00f3 i el seguiment de les mercaderies. Aix\u00f2 provoca inefici\u00e8ncies, errors i una p\u00e8rdua de temps i recursos. Per resoldre aquest problema, AllRead ha desenvolupat una soluci\u00f3 de Reconeixement Autom\u00e0tic de Senyals (ARS) que permet la identificaci\u00f3 i el seguiment de les mercaderies de manera automatitzada i en temps real. Aquesta soluci\u00f3, anomenada ARS\u24b8 Grues, \u00e9s un software instal\u00b7lat \u201cOn Premise\u201d que processa el flux de v\u00eddeos d\u2019una a quatre c\u00e0meres IP situades a la grua de contenidors (o en les seves immediacions al moll). Detecta i digitalitza els codis dels contenidors (BIC \u2013 ISO 6346) en la c\u00e0rrega i desc\u00e0rrega del vaixell. Com a opci\u00f3, es pot afegir la detecci\u00f3 de senyals de Mercaderies Perilloses (IMO \u2013 n\u00famero de perill i n\u00famero ONU) i la classificaci\u00f3 dels moviments del contenidor (c\u00e0rrega i desc\u00e0rrega). L\u2019ARS de grues proporciona en temps real (1 a 3 segons) un fitxer consolidat dels contenidors associats i, si \u00e9s el cas, les altres informacions esmentades. El d\u00edgit de control del contenidor es verifica autom\u00e0ticament. Una imatge associada a cada codi es guarda a la base de dades amb les seves metadades: temps, data i nivell de confian\u00e7a. Els v\u00eddeos tamb\u00e9 es poden desar. Les dades es comprimeixen autom\u00e0ticament per reduir l\u2019ocupaci\u00f3 al disc dur. S\u2019activa una pol\u00edtica de neteja de les dades. Nivells de precisi\u00f3 de fins al 99% de les dades consolidades.\n\nEl servei proporcionat per AllRead inclou la coordinaci\u00f3 del projecte fins als lliurables, la configuraci\u00f3 del software, la parametritzaci\u00f3 de les c\u00e0meres, proves en diferents condicions (mat\u00ed, tarda i nit), assist\u00e8ncia en la instal\u00b7laci\u00f3 i la integraci\u00f3. El servei tamb\u00e9 inclou 14 dies d\u2019operacions assistides despr\u00e9s de la implementaci\u00f3, acc\u00e9s a la plataforma d\u2019atenci\u00f3 al client, servei de suport i documentaci\u00f3, verificacions peri\u00f2diques de qualitat i actualitzacions peri\u00f2diques.\n\nEl software de Reconeixement \u00c0gil (ARS) \u2013 Grues \u00e9s una soluci\u00f3 que permet la identificaci\u00f3 i el seguiment de les mercaderies de manera automatitzada i en temps real. Aquesta soluci\u00f3 \u00e9s un software instal\u00b7lat \u201cOn Premise\u201d que processa el flux de v\u00eddeos d\u2019una a quatre c\u00e0meres IP situades a la grua de contenidors (o en les seves immediacions al moll). Detecta i digitalitza els codis dels contenidors (BIC \u2013 ISO 6346) en la c\u00e0rrega i desc\u00e0rrega del vaixell. Com a opci\u00f3, es pot afegir la detecci\u00f3 de senyals de Mercaderies Perilloses (IMO \u2013 n\u00famero de perill i n\u00famero ONU) i la classificaci\u00f3 dels moviments del contenidor (c\u00e0rrega i desc\u00e0rrega). L\u2019ARS de grues proporciona en temps real (1 a 3 segons) un fitxer consolidat dels contenidors associats i, si \u00e9s el cas, les altres informacions esmentades. El d\u00edgit de control del contenidor es verifica autom\u00e0ticament. Una imatge associada a cada codi es guarda a la base de dades amb les seves metadades: temps, data i nivell de confian\u00e7a. Els v\u00eddeos tamb\u00e9 es poden desar. Les dades es comprimeixen autom\u00e0ticament per reduir l\u2019ocupaci\u00f3 al disc dur. S\u2019activa una pol\u00edtica de neteja de les dades. Nivells de precisi\u00f3 de fins al 99% de les dades consolidades.\n\nEl servei proporcionat per AllRead inclou la coordinaci\u00f3 del projecte fins als lliurables, la configuraci\u00f3 del software, la parametritzaci\u00f3 de les c\u00e0meres, proves en diferents condicions (mat\u00ed, tarda i nit), assist\u00e8ncia en la instal\u00b7laci\u00f3 i la integraci\u00f3. El servei tamb\u00e9 inclou 14 dies d\u2019operacions assistides despr\u00e9s de la implementaci\u00f3, acc\u00e9s a la plataforma d\u2019atenci\u00f3 al client, servei de suport i documentaci\u00f3, verificacions peri\u00f2diques de qualitat i actualitzacions peri\u00f2diques.\n\nEl software de Reconeixement \u00c0gil (ARS) \u2013 Grues \u00e9s una soluci\u00f3 que permet la identificaci\u00f3 i el seguiment de les mercaderies de manera automatitzada i en temps real. Aquesta soluci\u00f3 \u00e9s un software instal\u00b7lat \u201cOn Premise\u201d que processa el flux de v\u00eddeos d\u2019una a quatre c\u00e0meres IP situades a la grua de contenidors (o en les seves immediacions al moll). Detecta i digitalitza els codis dels contenidors (BIC \u2013 ISO 6346) en la c\u00e0rrega i desc\u00e0rrega del vaixell. Com a opci\u00f3, es pot afegir la detecci\u00f3 de senyals de Mercaderies Perilloses (IMO \u2013 n\u00famero de perill i n\u00famero ONU) i la classificaci\u00f3 dels moviments del contenidor (c\u00e0rrega i desc\u00e0rrega). L\u2019ARS de grues proporciona en temps real (1 a 3 segons) un fitxer consolidat dels contenidors associats i, si \u00e9s el cas, les altres informacions esmentades. El d\u00edgit de control del contenidor es verifica autom\u00e0ticament. Una imatge associada a cada codi es guarda a la base de dades amb les seves metadades: temps, data i nivell de confian\u00e7a. Els v\u00eddeos tamb\u00e9 es poden desar. Les dades es comprimeixen autom\u00e0ticament per reduir l\u2019ocupaci\u00f3 al disc dur. S\u2019activa una pol\u00edtica de neteja de les dades. Nivells de precisi\u00f3 de fins al 99% de les dades consolidades.\n\nEl servei proporcionat per AllRead inclou la coordinaci\u00f3 del projecte fins als lliurables, la configuraci\u00f3 del software, la parametritzaci\u00f3 de les c\u00e0meres, proves en diferents condicions (mat\u00ed, tarda i nit), assist\u00e8ncia en la instal\u00b7laci\u00f3 i la integraci\u00f3. El servei tamb\u00e9 inclou 14 dies d\u2019operacions assistides despr\u00e9s de la implementaci\u00f3, acc\u00e9s a la plataforma d\u2019atenci\u00f3 al client, servei de suport i documentaci\u00f3, verificacions peri\u00f2diques de qualitat i actualitzacions peri\u00f2diques.\n\nEl software de Reconeixement \u00c0gil (ARS) \u2013 Grues \u00e9s una soluci\u00f3 que permet la identificaci\u00f3 i el seguiment de les mercaderies de manera automatitzada i en temps real. Aquesta soluci\u00f3 \u00e9s un software instal\u00b7lat \u201cOn Premise\u201d que processa el flux de v\u00eddeos d\u2019una a quatre c\u00e0meres IP situades a la grua de contenidors (o en les seves immediacions al moll). Detecta i digitalitza els codis dels contenidors (BIC \u2013 ISO 6346) en la c\u00e0rrega i desc\u00e0rrega del vaixell. Com a opci\u00f3, es pot afegir la detecci\u00f3 de senyals de Mercaderies Perilloses (IMO \u2013 n\u00famero de perill i n\u00famero ONU) i la classificaci\u00f3 dels moviments del contenidor (c\u00e0rrega i desc\u00e0rrega). L\u2019ARS de grues proporciona en temps real (1 a 3 segons) un fitxer consolidat dels contenidors associats i, si \u00e9s el cas, les altres informacions esmentades. El d\u00edgit de control del contenidor es verifica autom\u00e0ticament. Una imatge associada a cada codi es guarda a la base de dades amb les seves metadades: temps, data i nivell de confian\u00e7a. Els v\u00eddeos tamb\u00e9 es poden desar. Les dades es comprimeixen autom\u00e0ticament per reduir l\u2019ocupaci\u00f3 al disc dur. S\u2019activa una pol\u00edtica de neteja de les dades. Nivells de precisi\u00f3 de fins al 99% de les dades consolidades.\n\nEl servei proporcionat per AllRead inclou la coordinaci\u00f3 del projecte fins als lliurables, la configuraci\u00f3 del software, la parametritzaci\u00f3 de les c\u00e0meres, proves en diferents condicions (mat\u00ed, tarda i nit), assist\u00e8ncia en la instal\u00b7laci\u00f3 i la integraci\u00f3. El servei tamb\u00e9 inclou 14 dies d\u2019operacions assistides despr\u00e9s de la implementaci\u00f3, acc\u00e9s a la plataforma d\u2019atenci\u00f3 al client, servei de suport i documentaci\u00f3, verificacions peri\u00f2diques de qualitat i actualitzacions peri\u00f2diques.\n\nEl software de Reconeixement \u00c0gil (ARS) \u2013 Grues \u00e9s una soluci\u00f3 que permet la identificaci\u00f3 i el seguiment de les mercaderies de manera automatitzada i en temps real. Aquesta soluci\u00f3 \u00e9s un software instal\u00b7lat \u201cOn Premise\u201d que processa el flux de v\u00eddeos d\u2019una a quatre c\u00e0meres IP situades a la grua de contenidors (o en les seves immediacions al moll). Detecta i digitalitza els codis dels contenidors (BIC \u2013 ISO 6346) en la c\u00e0rrega i desc\u00e0rrega del vaixell. Com a opci\u00f3, es pot afegir la detecci\u00f3 de senyals de Mercaderies Perilloses (IMO \u2013 n\u00famero de perill i n\u00famero ONU) i la classificaci\u00f3 dels moviments del contenidor (c\u00e0rrega i desc\u00e0rrega). L\u2019ARS de grues proporciona en temps real (1 a 3 segons) un fitxer consolidat dels contenidors associats i, si \u00e9s el cas, les altres informacions esmentades. El d\u00edgit de control del contenidor es verifica autom\u00e0ticament. Una imatge associada a cada codi es guarda a la base de dades amb les seves metadades: temps, data i nivell de confian\u00e7a. Els v\u00eddeos tamb\u00e9 es poden desar. Les dades es comprimeixen autom\u00e0ticament per reduir l\u2019ocupaci\u00f3 al disc dur. S\u2019activa una pol\u00edtica de neteja de les dades. Nivells de precisi\u00f3 de fins al 99% de les dades consolidades.\n\nEl servei proporcionat per AllRead inclou la coordinaci\u00f3 del projecte fins als lliurables, la configuraci\u00f3 del software, la parametritzaci\u00f3 de"
         },
         {
             "name": "2.4.2. Descriure el repte principal i reptes associats que pret\u00e9n resoldre l'empresa amb el testatge, experimentaci\u00f3 i validaci\u00f3 de l'\u00fas i aplicaci\u00f3 de les tecnologies digitals avan\u00e7ades",
@@ -136,7 +136,7 @@
             "needs_science": true,
             "needs_business": true,
             "pdf_key": "242 reptes",
-            "answer": "El repte principal i reptes associats que pret\u00e9n resoldre l'empresa \u00e9s donar una experi\u00e8ncia d'usuari senzilla a projectes grans i complexos."
+            "answer": "El repte principal i reptes associats que pret\u00e9n resoldre l'empresa s\u00f3n:\n- Millorar l'operativa i competitivitat del transport de mercaderies.\n- Reduir el temps de processament i accelerar la gesti\u00f3 de dades.\n- Augmentar el control i la automatitzaci\u00f3 de la trazabilitat de la c\u00e0rrega.\n- Realitzar operacions m\u00e9s precises i r\u00e0pides.\n- Detectar i digitalitzar els codis dels contenidors i les matr\u00edcules des de diversos punts del carril.\n- Processar el flux de v\u00eddeos de dues o tres c\u00e0meres IP situades en diferents punts del carril.\n- Detectar i digitalitzar els codis dels contenidors i les matr\u00edcules de camions i remolcs.\n- Detectar i digitalitzar els codis dels contenidors i les matr\u00e0tiques de vehicles i remolcs.\n- Processar el flux de v\u00eddeos d'una a quatre c\u00e0meres IP situades a la grua de contenidors.\n- Detectar i digitalitzar els codis dels contenidors i les matr\u00e0tiques de camions i remolcs.\n- Processar el flux de v\u00eddeos d'una a quatre c\u00e0meres IP situades a la grua de contenidors.\n- Detectar i digitalitzar els codis dels contenidors i les matr\u00e0tiques de vehicles i remolcs.\n- Processar el flux de v\u00eddeos de dues o tres c\u00e0meres IP situades en diferents punts del carril.\n- Detectar i digitalitzar els codis dels contenidors i les matr\u00e0tiques de vehicles i remolcs.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via.\n- Detectar i digitalitzar els codis dels contenidors i vagons per a cada pas del tren.\n- Processar el flux de v\u00eddeos de dues c\u00e0meres IP situades en ambd\u00f3s costats de la via"
         },
         {
             "name": "2.4.3. Descriure quin tipus de resultats s\u2019esperen del servei ( Els resultats obtinguts han de ser algun dels que s\u2019indiquen en l'apartat 6 del annex 2 )",
@@ -146,7 +146,7 @@
             "needs_science": true,
             "needs_business": true,
             "pdf_key": "243 tipus resultats esperats",
-            "answer": "Els resultats esperats del servei s\u00f3n:\n- Enviament de newsletters, comunicacions comercials i promocions.\n- Gestionar les consultes o qualsevol tipus de petici\u00f3 que sigui realitzada a trav\u00e9s de les formes de contacte que es posen a disposici\u00f3 a la p\u00e0gina web.\n- Gestionar les incid\u00e8ncies i el manteniment de la web."
+            "answer": "Els resultats esperats del servei s\u00f3n: Reducci\u00f3 de tasques manuals, lat\u00e8ncies i errors, Efici\u00e8ncia Operativa, Sostenibilitat, Tr\u00e0nsits m\u00e9s r\u00e0pids, Menys emissions de CO2, Seguretat i Protecci\u00f3, Compliance, i Efici\u00e8ncia Operativa."
         },
         {
             "name": "2.4.4. Llistar i descriure el/s lliurable/s previstos",
@@ -156,7 +156,7 @@
             "needs_science": true,
             "needs_business": true,
             "pdf_key": "244 lliurables",
-            "answer": "No puc respondre."
+            "answer": "no puc respondre"
         },
         {
             "name": "NIF del prove\u00efdor",
@@ -165,7 +165,7 @@
             "needs_science": true,
             "needs_business": false,
             "pdf_key": "NIF proveidor",
-            "answer": "El NIF del prove\u00efdor \u00e9s Q5856375J."
+            "answer": "No puc respondre."
         },
         {
             "name": "Indicar el tipus de vinculaci\u00f3 amb un EDIH",
@@ -194,7 +194,7 @@
             "needs_science": true,
             "needs_business": false,
             "pdf_key": "Nom Edih",
-            "answer": "El nom del EDIH \u00e9s Centre de Visi\u00f3 per Computador."
+            "answer": "No puc respondre."
         },
         {
             "name": "Nom de l'Entitat representant de l'EDIH",
@@ -203,7 +203,7 @@
             "needs_science": true,
             "needs_business": false,
             "pdf_key": "represent Edih",
-            "answer": "El nom de l'entitat representant de l'EDIH \u00e9s Centre de Visi\u00f3 per Computador."
+            "answer": "No puc respondre."
         },
         {
             "name": "NIF de l'Entitat representant de l'EDIH",
@@ -221,7 +221,7 @@
             "needs_science": true,
             "needs_business": false,
             "pdf_key": "32 projectes previs",
-            "answer": "Les compet\u00e8ncies i coneixements experts del prove\u00efdor s\u00f3n: Processament d'imatges, Processament de senyals, Intel\u00b7lig\u00e8ncia Artificial, Machine Learning, Deep Learning, visi\u00f3 per computador, an\u00e0lisi de documents i reconeixement de documents."
+            "answer": "No puc respondre."
         },
         {
             "name": "3.3. Experi\u00e8ncia pr\u00e8via en la prestaci\u00f3 de serveis especialitzats de digitalitzaci\u00f3 a les empreses relacionats amb el servei de testatge, experimentaci\u00f3 i validaci\u00f3 de tecnologia a prestar a l'empresa sol\u00b7licitant de l'ajut.",
@@ -239,7 +239,7 @@
             "needs_science": true,
             "needs_business": false,
             "pdf_key": "34 nom servei",
-            "answer": "El nom del servei ofert a trav\u00e9s del EDIH \u00e9s el Centre de Visi\u00f3 per Computador."
+            "answer": "No puc respondre."
         },
         {
             "name": "3.5. Relaci\u00f3 de les infraestructures i equipaments propis del prove\u00efdor oferts a trav\u00e9s del European Digital Innovation Hub relacionats amb el servei a prestar a l'empresa sol\u00b7licitant de l'ajut",
@@ -278,5 +278,5 @@
             "answer": "No puc respondre."
         }
     ],
-    "Mickael Coustaty"
+    "Jordy Van Landeghem"
 ]

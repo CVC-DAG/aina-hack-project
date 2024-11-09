@@ -16,7 +16,7 @@ def get_answers(empresa: Empresa, scimatcher: SciMatcher, nom_convocatoria: str,
         context = ""
 
         if slot['needs_business']:
-            context += f"Dades de l'empresa:\nNom: {empresa.name}\n Pàgina Web: {empresa.url}\n\n" + " ".join(empresa.query_vdb(slot['search_query']))
+            context += f"Dades de l'empresa:\n Pàgina Web: {empresa.url}\n\n" + " ".join(empresa.query_vdb(slot['search_query']))
         if slot['needs_science']:
             context += "Dades del centre d'investigació:\nNom: Centre de Visió per Computador\nNIF: Q5856375J\n\nArticles científics que has de tenir en compte (tradueix al català): " + relevant_papers
         if len(context) > max_context_length:
