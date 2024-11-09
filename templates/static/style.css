@@ -120,11 +120,14 @@ button:active {
 }
 
 #convocatories, #convocatoria_emplenada {
+    width: inherit;
+    margin: auto;
     font-size: 1.2rem;
     color: var(--primary-color);
     background-color: #f8f9fa;
-    padding: 1rem;
+    padding: 2rem;
     border-radius: 5px;
+    align-content: center;
 }
 
 @media (max-width: 768px) {
@@ -146,6 +149,8 @@ button:active {
 }
 /* Table Styling */
 table {
+    margin-right:auto;
+    margin-left:auto;
     width: 100%;
     border-collapse: collapse;
     margin-top: 1rem;
@@ -206,6 +211,7 @@ input[type="radio"] {
   width: 120px;
   height: 120px;
   animation: spin 2s linear infinite;
+  align-self: center;
 }
 
 @keyframes spin {

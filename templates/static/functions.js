@@ -13,7 +13,7 @@ function submitURLForm() {
         redirect: 'follow',
         body: formData,
     };
-    convElement.style.display = 'contents'
+    convElement.style.display = 'block'
     convElement.innerHTML = '<div class="loader">Carregant...</div>'
     fetch('/submit_upload_business', requestOptions)
         .then(response => response.text())
@@ -36,7 +36,7 @@ function submitWhichCall() {
         body: formData,
     };
     document.getElementById('submit_button_ok').style='display: none;'
-    convElement.style.display = 'contents'
+    convElement.style.display = 'block'
     convElement.innerHTML = '<div class="loader">Carregant...</div>'
     fetch('/fill_selected_call', requestOptions)
         .then(response => response.text())
