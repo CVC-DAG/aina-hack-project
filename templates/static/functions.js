@@ -31,6 +31,7 @@ function submitWhichCall() {
         redirect: 'follow',
         body: formData,
     };
+    document.getElementById('submit_button_ok').style='display: none;'
     fetch('/fill_selected_call', requestOptions)
         .then(response => response.text())
         .then(data => {

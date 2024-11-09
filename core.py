@@ -115,7 +115,7 @@ def show_project_calls():
         metadata = call["metadata"]
         output += create_call_row(name, metadata, ii==0)
     output += "</tbody></table>"
-    output += '<button type="button" onClick="javascript:submitWhichCall()">Emplena sol·licitud</button>'
+    output += '<button type="button" onClick="javascript:submitWhichCall()" id="submit_button_ok">Emplena sol·licitud</button>'
     return output
 
 @app.route('/esmenar/')
