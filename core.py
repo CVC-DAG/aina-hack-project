@@ -60,7 +60,7 @@ def upload_business(business_url):
 
     empreses[business_url] = empresa_nova
 
-    return empresa_nova
+    return None
 
 @app.route("/fill_selected_call", methods=["POST"])
 def process_fill_call():
