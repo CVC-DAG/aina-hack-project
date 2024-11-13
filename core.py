@@ -193,7 +193,7 @@ def create_call_row(nom, metadata, checked):
 
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=8001, debug=True)
+    app.run(host="0.0.0.0", port=7863, debug=True)
 
 
 
